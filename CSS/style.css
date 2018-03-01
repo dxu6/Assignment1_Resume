@@ -2,7 +2,9 @@
 	Styles for CSS of David Xu Assignment1_Resume
 */
 body {
-  background: green;
+  background: green url("rockymount.jpg") no-repeat;
+  background-size: 100%;
+
 	font-family: helvetica, arial, sans-serif;
   color: orange;
 	min-height: 1600px;
@@ -17,6 +19,7 @@ table {
 td {
   padding: 10px 0;
 }
+
 
 h1, h2 {
   margin: 0;
