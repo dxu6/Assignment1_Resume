@@ -1,13 +1,26 @@
 /*
 	Styles for CSS of David Xu Assignment1_Resume
 */
-
 body {
+  background: green url("rockymount.jpg") no-repeat;
+  background-size: 100%;
+
 	font-family: helvetica, arial, sans-serif;
-  color: #575757;
+  color: orange;
 	min-height: 1600px;
   padding: 10px;
 }
+
+table {
+  border-collapse: separate;
+  border-spacing: 50px 0;
+}
+
+td {
+  padding: 10px 0;
+}
+
+
 h1, h2 {
   margin: 0;
   padding: 0;
@@ -23,7 +36,7 @@ h1, h2 {
 	border: 1px solid #ccc;
 }
 .container {
-	width: 50%;
+	width: 95%;
 	padding: 10px;
 	margin: 20px auto;
 	border: 2px solid green;
@@ -34,13 +47,13 @@ h1, h2 {
 	Absolute and Fixed
 ============================ */
 .container1 {
-	height: 200px;
+	height: 100px;
 	position: relative; /* now anchors absolute items */
 }
 .a {
 	position: absolute;
-	top: 50px;
-	left: 50px;
+	top: 250px;
+	left: 5px;
 	background-color: red;
 
 }
