@@ -245,12 +245,8 @@ float: left;
 
 /* This is Section4  */
 .bg.section4{
-	/* background-image: url("../image4/prototype_0005s_0002s_0000_Layer-18.png");  */
-	background-position: center;
-	background-size: cover;
-	background-color: grey;
-	width: 100%;
-	height: 300px;
+	background-image: url("../image5/snow.png");
+
 }
 .section4-frame{
 	width: 300px;
@@ -353,19 +349,44 @@ float: left;
 
 /* This is Footer Section  */
 .section6{
+	background-color: black;
 	position: absolute;
 	top: 3050px;
 	width: 100%;
 	height: 500px;
+	font-family: 'Abraham Lincoln';
+	font-size: 5px;
 }
 
-.section6-phone,  .section6-unity, 
-.section6-mail,   .section6-girl,
-.section6-media,  .section6-subscribe,
-.section6-3icon {
+.section6-div1{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	float: left;
+}
+.section6-phone,  .section6-unity, .section6-mail{
+    position: relative;
+	width: 30%;
+	margin-right: 10px;
+	/* height: 50px; */
+	/* float: left; */
+	clear: both;
+}
+
+.section6-girl, .section6-subscribe, .section6-3icon {
     position: relative;
 	width: 20%;
 	height: 50px;
+	float: left;
+	clear: both;
+}
+
+.section6-media{
+    position: relative;
+	width: 5px;
+	height: 5px;
 	float: left;
 	clear: both;
 }
