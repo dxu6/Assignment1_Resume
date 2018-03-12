@@ -1,0 +1,335 @@
+/*
+	Styles for CSS of David Xu Assignment1_Resume
+*/
+
+body{
+	/* background-size: 100%; */
+	/*background-color: green; */
+	font-family: helvetica, arial, sans-serif;
+    color: orange;
+	min-height: 1600px;
+	margin: 0px;
+}
+
+.bg{
+	height: 100vh;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* This is Section1  */
+
+.bg.section1{
+	background-image: url("../image1/snow_bg_1024.png"); 
+	background-position: center;
+	background-size: cover;
+	background-color: black;
+	width: 100%;
+	height: 1696px;
+}
+
+.section1-unity{
+	margin-top: 152px;
+	border: 3px solid white;
+	padding: 5px;
+}
+
+.section1-nav li {
+	display: inline;
+	margin-top: 60px;
+	margin-right: 20px;
+}
+
+.section1-honorDiv{
+	color: yellow;
+	font: bold;
+	font-size: 32px;
+	padding-top: 36%;
+	text-align: center;
+}
+.section1-honorDescription{
+	color: white;
+	font-size: 16px;
+    text-align: center;
+}
+
+.section1-img-phone{
+	float: right;
+	position: absolute;
+	top: 40px;
+    right: 100px;
+}
+
+
+.section1-media{
+	transform: rotate(-90deg);
+	position: absolute;
+	top: 627px;
+    right: -266px;
+
+}
+
+.section1-media li{
+	
+	display: inline;
+	margin: 10px;
+}
+
+.section1-scroll-square{
+	width: 50px;
+    height: 50px;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+	margin: 300px auto 50px auto;
+	  }
+	  
+.scroll{
+    /* margin: 0; */
+    margin:30px auto 50px auto;
+}
+
+.section1-arrow{
+    /* margin: 0; */
+	margin:400px auto 50px auto;
+	color: white;
+	position: absolute;
+	/* font-size: 6px; */
+	/* font-family: "Poppins"; */
+	width: 50px;
+	height: 20px;
+	margin: 10%;
+	margin-left: 15%;
+	margin-right: 5%;
+	margin-top: 800px;
+}
+
+
+/* This is Section2  */
+
+.bg.section2{
+	background-image: url("../image2/prototype_0001s_0006_Rectangle-2.png"); 
+	background-position: center;
+	background-size: cover;
+	/* background-color: black; */
+	width: 100%;
+	height: 1322px;
+}
+
+.section2-01{
+	float: left;
+	position: absolute;
+	top: 1800px;
+    right: 982px;
+}
+.section2-square{
+	width: 560px;
+    height:560px;
+    /* border-top: 15px solid white;
+    border-left: 15px solid white;
+	border-right: 15px solid white; */
+	border: 15px solid white;
+	position: absolute;
+	margin: -260px 215px auto 375px;
+	  }
+
+.section2-invites{
+	color: white;
+	font: bold;
+	font-size: 32px;
+	position: absolute;
+	top: 1844px;
+	right: 734px;
+}
+
+.section2-active{
+	color: white;
+	font: bold;
+	font-size: 32px;
+	position: absolute;
+	top: 1901px;
+	right: 556px;
+}
+.section2-active-why{
+	color: white;
+	font-size: 11px;
+	position: absolute;
+	top: 1970px;
+	right: 574px;
+
+}
+
+.section2-img-brush{
+	float: right;
+	position: absolute;
+	top: 1800px;
+	right: 100px;
+	z-index: 1;
+}
+
+.section2-mid-compl{
+	color: white;
+	font-size: 47px;
+    position: absolute;
+    top: 2138px;
+    right: 918px;
+}
+
+.section2-mid-we{
+	color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 2146px;
+    right: 181px;
+}
+
+.section2-share-hat-tool{
+	position: absolute;
+	/* font-size: 6px; */
+	/* font-family: "Poppins"; */
+	width: 1200px;
+	height: 200px;
+	display: inline-block;
+	margin: 10%;
+	margin-left: 15%;
+	margin-right: 5%;
+	margin-top: 1000px;
+}
+
+.section2-one{
+margin-right: 5%;
+width: 20%;
+color: #ffffff;
+display: inline-block;
+float: left;
+}
+
+.share-text{
+	position: relative;
+	top: 1px;
+	font-size: 12px;
+	font-family: "Poppins";
+	/* width: 150px;
+	height: 300px;
+	margin: 25%; */
+}
+
+/* This is Section3  */
+
+.bg.section3{
+	background-image: url("../image3/prototype_0008s_0008_Rectangle-41.png"); 
+	background-position: center;
+	background-size: cover;
+	/* background-color: black; */
+	width: 100%;
+	height: 1322px;
+}
+
+/* This is Section4  */
+.bg.section4{
+	/* background-image: url("../image4/prototype_0005s_0002s_0000_Layer-18.png");  */
+	background-position: center;
+	background-size: cover;
+	/* background-color: black; */
+	width: 100%;
+	height: 132px;
+}
+.section4-frame{
+	width: 300px;
+	height: 300px;
+	z-index: 0;
+}
+.section4-man{
+    position: relative;
+	top: -46px;
+    left: -203px;
+	width: 400px;
+	height: 400px;
+	z-index: 1;
+}
+.section4-do{
+    background-position: center;
+	background-size: cover;
+	background-color: purple;
+	width: 150px;
+	height: 120px;
+		top: 189px;
+    left: -144px;
+	z-index: 2;
+}
+
+.section4-table{
+	position: relative;
+	top: -564px;
+    left: 1385px;
+    width: 400px;
+	height: 400px;
+}
+/* This is Section5  */
+.section5{
+	background-image: url("../image5/snow.png"); 
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	height: 1322px;
+}
+.section5-global1{
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	position: relative;
+	width: auto;
+}
+.section5-global2{
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 6px;
+	position: relative;
+	width: auto;
+}
+
+.section5-customer{
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 6px;
+	position: relative;
+	width: auto;
+}
+.section5-man-wrapper{
+	
+
+}
+
+
+
+
+
+
+
+/* This is Footer Section  */
+.section6{
+    position: relative;
+	width: 100%;
+	height: 500px;
+	float: left;
+}
+
+.section6-global1, .section6-global2,.section6-global3{
+    position: relative;
+	width: 10%;
+	height: 5px;
+}
+
+.section6-footer{
+    position: relative;
+	width: 100%;
+	height: 500px;
+}
+
+
+.section6-phone, .section6-unity, .section6-mail {
+    position: relative;
+	width: 10%;
+	height: 5px;
+}
