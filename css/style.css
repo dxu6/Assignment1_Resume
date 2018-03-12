@@ -1,11 +1,26 @@
 /*
 	Styles for CSS of David Xu Assignment1_Resume
 */
+/* FONT */
+@font-face {
+    font-family: 'Abraham Lincoln';
+    src: url('../fonts/abrahamlincoln-webfont.woff2') format('woff2'),
+         url('../fonts/abrahamlincoln-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gotham Black';
+    src: url('fonts/GothamBlack.woff2') format('woff2'),
+        url('fonts/GothamBlack.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body{
 	/* background-size: 100%; */
 	/*background-color: green; */
-	font-family: helvetica, arial, sans-serif;
+	font-family: 'Abraham Lincoln';
     color: orange;
 	min-height: 1600px;
 	margin: 0px;
@@ -44,10 +59,12 @@ body{
 .section1-honorDiv{
 	color: yellow;
 	font: bold;
-	font-size: 32px;
+	font-size: 100px;
 	padding-top: 36%;
 	text-align: center;
+	font-weight: 100;
 }
+
 .section1-honorDescription{
 	color: white;
 	font-size: 16px;
@@ -209,7 +226,7 @@ float: left;
 	position: relative;
 	top: 1px;
 	font-size: 12px;
-	font-family: "Poppins";
+	font-family: 'Abraham Lincoln';
 	/* width: 150px;
 	height: 300px;
 	margin: 25%; */
@@ -231,9 +248,9 @@ float: left;
 	/* background-image: url("../image4/prototype_0005s_0002s_0000_Layer-18.png");  */
 	background-position: center;
 	background-size: cover;
-	/* background-color: black; */
+	background-color: grey;
 	width: 100%;
-	height: 132px;
+	height: 300px;
 }
 .section4-frame{
 	width: 300px;
@@ -272,18 +289,20 @@ float: left;
 	background-position: center;
 	background-size: cover;
 	width: 100%;
-	height: 1322px;
+	height: 500px;
 }
 .section5-global1{
 	text-transform: uppercase;
-	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-family: 'Abraham Lincoln';
 	font-size: 10px;
 	position: relative;
 	width: auto;
 }
 .section5-global2{
 	text-transform: uppercase;
-	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-family: 'Abraham Lincoln';
 	font-size: 6px;
 	position: relative;
 	width: auto;
@@ -291,7 +310,8 @@ float: left;
 
 .section5-customer{
 	text-transform: uppercase;
-	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-family: 'Abraham Lincoln';
 	font-size: 6px;
 	position: absolute;
 	top: 3000px;
@@ -310,6 +330,8 @@ float: left;
 	height: 400px; 
 	margin-right: 2%;
 	background-color: white;
+	float: left;
+	clear: both;
 }
 
 .section5-man2{
@@ -317,12 +339,16 @@ float: left;
 	height: 400px; 
 	margin-right: 2%;
 	background-color: blue;
+	float: left;
+	clear: both;
 }
 .section5-man3{
 	width: 30%;
 	height: 400px; 
 	margin-right: 2%;
 	background-color: white;
+	float: left;
+	clear: both;
 }
 
 /* This is Footer Section  */
@@ -331,14 +357,15 @@ float: left;
 	top: 3050px;
 	width: 100%;
 	height: 500px;
-	float: left;
 }
 
-.section6-phone, .section6-unity, 
-.section6-mail, .section6-girl,
-.section6-media, .section6-subscribe,
-..section6-3icon {
+.section6-phone,  .section6-unity, 
+.section6-mail,   .section6-girl,
+.section6-media,  .section6-subscribe,
+.section6-3icon {
     position: relative;
 	width: 20%;
 	height: 50px;
+	float: left;
+	clear: both;
 }
