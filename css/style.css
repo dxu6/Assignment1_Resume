@@ -33,9 +33,9 @@ body{
 	padding: 0px;
 }
 
-/* This is Section1  */
+/* This is page1  */
 
-.bg.section1{
+.bg.page1{
 	background-image: url("../image1/snow_bg_1024.png"); 
 	background-position: center;
 	background-size: cover;
@@ -44,13 +44,13 @@ body{
 	height: 1696px;
 }
 
-.section1-unity{
+.page1-unity{
 	margin-top: 152px;
 	border: 3px solid white;
 	padding: 5px;
 }
 
-.section1-nav li {
+.page1-nav li {
 	display: inline;
 	margin-top: 60px;
 	margin-right: 50px;
@@ -58,7 +58,7 @@ body{
 	font-size: 30px;
 }
 
-.section1-honorDiv{
+.page1-honorDiv{
 	color: yellow;
 	font: bold;
 	font-size: 100px;
@@ -67,13 +67,13 @@ body{
 	font-weight: 100;
 }
 
-.section1-honorDescription{
+.page1-honorDescription{
 	color: white;
 	font-size: 30px;
     text-align: center;
 }
 
-.section1-img-phone{
+.page1-img-phone{
 	float: right;
 	position: absolute;
 	top: 40px;
@@ -81,7 +81,7 @@ body{
 }
 
 
-.section1-media{
+.page1-media{
 	transform: rotate(-90deg);
 	position: absolute;
 	top: 627px;
@@ -91,13 +91,13 @@ body{
 
 }
 
-.section1-media li{
+.page1-media li{
 	
 	display: inline;
 	margin: 20px;
 }
 
-.section1-scroll-square{
+.page1-scroll-square{
 	width: 50px;
     height: 50px;
     border-top: 1px solid white;
@@ -111,7 +111,7 @@ body{
     margin:30px auto 50px auto;
 }
 
-.section1-arrow{
+.page1-arrow{
     /* margin: 0; */
 	margin:400px auto 50px auto;
 	color: white;
@@ -127,9 +127,9 @@ body{
 }
 
 
-/* This is Section2  */
+/* This is page2  */
 
-.bg.section2{
+.bg.page2{
 	background-image: url("../image2/prototype_0001s_0006_Rectangle-2.png"); 
 	background-position: center;
 	background-size: cover;
@@ -138,13 +138,13 @@ body{
 	height: 1322px;
 }
 
-.section2-01{
+.page2-01{
 	float: left;
 	position: absolute;
 	top: 1800px;
     right: 982px;
 }
-.section2-square{
+.page2-square{
 	width: 560px;
     height:560px;
     /* border-top: 15px solid white;
@@ -155,7 +155,7 @@ body{
 	margin: -260px 215px auto 375px;
 	  }
 
-.section2-invites{
+.page2-invites{
 	color: white;
 	font: bold;
 	font-size: 32px;
@@ -164,7 +164,7 @@ body{
 	right: 734px;
 }
 
-.section2-active{
+.page2-active{
 	color: white;
 	font: bold;
 	font-size: 32px;
@@ -172,7 +172,7 @@ body{
 	top: 1901px;
 	right: 556px;
 }
-.section2-active-why{
+.page2-active-why{
 	color: white;
 	font-size: 11px;
 	position: absolute;
@@ -181,7 +181,7 @@ body{
 
 }
 
-.section2-img-brush{
+.page2-img-brush{
 	float: right;
 	position: absolute;
 	top: 1800px;
@@ -189,7 +189,7 @@ body{
 	z-index: 1;
 }
 
-.section2-mid-compl{
+.page2-mid-compl{
 	color: white;
 	font-size: 47px;
     position: absolute;
@@ -197,7 +197,7 @@ body{
     right: 918px;
 }
 
-.section2-mid-we{
+.page2-mid-we{
 	color: white;
     font-size: 18px;
     position: absolute;
@@ -205,7 +205,7 @@ body{
     right: 181px;
 }
 
-.section2-share-hat-tool{
+.page2-share-hat-tool{
 	position: absolute;
 	/* font-size: 6px; */
 	/* font-family: "Poppins"; */
@@ -218,7 +218,7 @@ body{
 	margin-top: 1000px;
 }
 
-.section2-one{
+.page2-one{
 margin-right: 5%;
 width: 20%;
 color: #ffffff;
@@ -236,9 +236,9 @@ float: left;
 	margin: 25%; */
 }
 
-/* This is Section3  */
+/* This is page3  */
 
-.bg.section3{
+.bg.page3{
 	background-image: url("../image3/prototype_0008s_0008_Rectangle-41.png"); 
 	background-position: center;
 	background-size: cover;
@@ -247,17 +247,17 @@ float: left;
 	height: 1322px;
 }
 
-/* This is Section4  */
-.bg.section4{
+/* This is page4  */
+.bg.page4{
 	background-image: url("../image5/snow.png");
 
 }
-.section4-frame{
+.page4-frame{
 	width: 300px;
 	height: 300px;
 	z-index: 0;
 }
-.section4-man{
+.page4-man{
     position: relative;
 	top: -46px;
     left: -203px;
@@ -265,7 +265,7 @@ float: left;
 	height: 400px;
 	z-index: 1;
 }
-.section4-do{
+.page4-do{
     background-position: center;
 	background-size: cover;
 	background-color: purple;
@@ -276,22 +276,22 @@ float: left;
 	z-index: 2;
 }
 
-.section4-table{
+.page4-table{
 	position: relative;
 	top: -564px;
     left: 1385px;
     width: 400px;
 	height: 400px;
 }
-/* This is Section5  */
-.section5{
+/* This is page5  */
+.page5{
 	background-image: url("../image5/snow.png"); 
 	background-position: center;
 	background-size: cover;
 	width: 100%;
 	height: 500px;
 }
-.section5-global1{
+.page5-global1{
 	text-transform: uppercase;
 	text-align: center;
 	font-family: 'Abraham Lincoln';
@@ -299,7 +299,7 @@ float: left;
 	position: relative;
 	width: auto;
 }
-.section5-global2{
+.page5-global2{
 	text-transform: uppercase;
 	text-align: center;
 	font-family: 'Abraham Lincoln';
@@ -308,7 +308,7 @@ float: left;
 	width: auto;
 }
 
-.section5-customer{
+.page5-customer{
 	text-transform: uppercase;
 	text-align: center;
 	font-family: 'Abraham Lincoln';
@@ -318,14 +318,14 @@ float: left;
     /* right: 918px; */
 	margin: auto;
 }
-.section5-man-wrapper{
+.page5-man-wrapper{
 	float: left;
 	clear: both;
 	width: 100%;
 	height: 400px; 
 }
 
-.section5-man1{
+.page5-man1{
 	width: 30%;
 	height: 400px; 
 	margin-right: 2%;
@@ -334,7 +334,7 @@ float: left;
 	clear: both;
 }
 
-.section5-man2{
+.page5-man2{
 	width: 30%;
 	height: 400px; 
 	margin-right: 2%;
@@ -342,7 +342,7 @@ float: left;
 	float: left;
 	clear: both;
 }
-.section5-man3{
+.page5-man3{
 	width: 30%;
 	height: 400px; 
 	margin-right: 2%;
@@ -351,8 +351,8 @@ float: left;
 	clear: both;
 }
 
-/* This is Footer Section  */
-.section6{
+/* This is Footer page  */
+.footer{
 	background-color: black;
 	position: absolute;
 	top: 7050px;
@@ -362,7 +362,7 @@ float: left;
 	font-size: 5px;
 }
 
-.section6-div1{
+.footer-div1{
 	position: relative;
 	width: 100%;
 	height: 50px;
@@ -370,7 +370,7 @@ float: left;
 	margin-bottom: 5px;
 	float: left;
 }
-.section6-phone,  .section6-unity, .section6-mail{
+.footer-phone,  .footer-unity, .footer-mail{
     position: relative;
 	width: 30%;
 	margin-right: 10px;
@@ -379,7 +379,7 @@ float: left;
 	clear: both;
 }
 
-.section6-girl, .section6-subscribe, .section6-3icon {
+.footer-girl, .footer-subscribe, .footer-3icon {
     position: relative;
 	width: 20%;
 	height: 50px;
@@ -387,7 +387,7 @@ float: left;
 	clear: both;
 }
 
-.section6-media{
+.footer-media{
     position: relative;
 	width: 5px;
 	height: 5px;
