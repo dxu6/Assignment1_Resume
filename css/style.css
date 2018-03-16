@@ -16,9 +16,6 @@
     font-weight: normal;
     font-style: normal;
 }
-html{
-	margin: 0px;
-}
 
 body{
 	/* background-size: 100%; */
@@ -268,22 +265,47 @@ float: left;
 }
 
 .page3-clients{
-	margin-left: 310px;
-    margin-top: 300px;
+	margin-left: 789px;
+    margin-top: 197px;
 }
 
-.page3-clients >p{
+.page3 > p {
 	margin-left: 310px;
-	margin-top: 320px;
-	font-size: 20px;
+	margin-top: 54px;
+	margin-bottom: 1px;
+	font-size: 30px;
 	text-align: center;
-	text-decoration-color: black;
+	color: black;
 }
 
-.page-button{
-	margin-left: 512px;
-    margin-top: 50px;
+.page3-button{
+	/* margin-left: 512px;
+	margin-top: 50px; */
+	margin-left: 789px;
 }
+
+.page3-basket, .page3-pen1, .page3-pen2, .page3-frame, .page3-02{
+
+} 
+
+.page3 > h1 {
+	margin-left: 710px;
+	margin-top: 54px;
+	margin-bottom: 1px;
+	font-size: 30px;
+	text-align: right;
+	color: black;
+}
+.page3 p {
+	margin-left: 710px;
+	margin-top: 54px;
+	margin-bottom: 1px;
+	font-size: 10px;
+	text-align: right;
+	color: black;
+}
+
+
 
 /* This is page4  */
 .bg.page4{
