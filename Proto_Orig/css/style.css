@@ -1,0 +1,466 @@
+/*
+	Styles for CSS of David Xu Assignment1_Resume
+*/
+/* FONT */
+@font-face {
+    font-family: 'Abraham Lincoln';
+    src: url('../fonts/abrahamlincoln-webfont.woff2') format('woff2'),
+         url('../fonts/abrahamlincoln-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gotham Black';
+    src: url('fonts/GothamBlack.woff2') format('woff2'),
+        url('fonts/GothamBlack.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+	/* background-size: 100%; */
+	/*background-color: green; */
+	font-family: 'Abraham Lincoln';
+    color: orange;
+	min-height: 1600px;
+	margin: 0px;
+}
+
+.bg{
+	height: 100vh;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* This is page1  */
+
+.bg.page1{
+	background-image: url("../image1/snow_bg_1024.png"); 
+	background-position: center;
+	background-size: cover;
+	background-color: black;
+	width: 100%;
+	height: 1700px;
+	/* height: auto; */
+}
+
+.page1-unity{
+	margin-top: 152px;
+	border: 3px solid white;
+	padding: 5px;
+}
+
+.page1-nav li {
+	display: inline;
+	margin-top: 60px;
+	margin-right: 50px;
+	color: white;
+	font-size: 30px;
+}
+
+.page1-honorDiv{
+	color: yellow;
+	font: bold;
+	font-size: 100px;
+	padding-top: 36%;
+	text-align: center;
+	font-weight: 100;
+}
+
+.page1-honorDescription{
+	color: white;
+	font-size: 30px;
+    text-align: center;
+}
+
+.page1-img-phone{
+	float: right;
+	position: absolute;
+	top: 40px;
+    right: 100px;
+}
+
+
+.page1-media{
+	transform: rotate(-90deg);
+	position: absolute;
+	top: 627px;
+	right: -316px;
+	color: white;
+	font-size: 30px;
+
+}
+
+.page1-media li{
+	
+	display: inline;
+	margin: 20px;
+}
+
+.page1-scroll-square{
+	width: 50px;
+    height: 50px;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+	margin: 90px auto 50px auto;
+	  }
+	  
+.scroll{
+    /* margin: 0; */
+    margin:30px auto 50px auto;
+}
+
+.page1-arrow{
+    /* margin: 0; */
+	margin:400px auto 50px auto;
+	color: white;
+	position: absolute;
+	/* font-size: 6px; */
+	/* font-family: "Poppins"; */
+	width: 50px;
+	height: 20px;
+	margin: 10%;
+	margin-left: 15%;
+	margin-right: 5%;
+	margin-top: 800px;
+}
+
+
+/* This is page2  */
+
+.bg.page2{
+	background-image: url("../image2/prototype_0001s_0006_Rectangle-2.png"); 
+	background-position: center;
+	background-size: cover;
+	/* background-color: black; */
+	width: 100%;
+	height: 1000px;
+	/* height: auto; */
+}
+
+.page2-01{
+	/* float: left; */
+	position: relative;
+	margin: 20px 0px 0px 152px;
+	
+	/* top: 1700px;
+	right: 982px; */
+	/* font-size: 20px; */
+}
+
+.page2-square{
+	width: 560px;
+    height:560px;
+    /* border-top: 15px solid white;
+    border-left: 15px solid white;
+	border-right: 15px solid white; */
+	border: 10px solid white;
+	position: absolute;
+	margin: -1036px  215px auto 375px;
+	  }
+
+.page2-invites{
+	color: white;
+	font: bold;
+	font-size: 80px;
+	position: relative;
+	top: -316px;
+    right: 70px;
+}
+
+.page2-active{
+	color: white;
+	font: bold;
+	font-size: 80px;
+	position: relative;
+	top: -367px;
+	/* top: 30px;
+	right: 220px; */
+}
+.page2-active-why{
+	color: white;
+	font-size: 30px;
+	position: relative;
+	top: -426px;
+	/* top: 5px;
+	right: 220px; */
+
+}
+
+.page2-img-brush{
+	float: right;
+	position: absolute;
+	top: 1800px;
+	right: 100px;
+	z-index: 1;
+}
+
+.page2-mid-compl{
+	color: white;
+	font-size: 47px;
+    position: absolute;
+    top: 2138px;
+    right: 918px;
+}
+
+.page2-mid-compl>h4{
+	margin: 0px;
+}
+
+.page2-mid-we{
+	color: white;
+    font-size: 18px;
+    position: absolute;
+	top: 2184px;
+    right: 438px;
+}
+.page2-mid-we > h4{
+	margin:0px;
+}
+
+.page2-share-hat-tool{
+	position: absolute;
+	/* font-size: 6px; */
+	/* font-family: "Poppins"; */
+	width: 1200px;
+	height: 200px;
+	display: inline-block;
+	/* margin: 10%; */
+	margin-left: 15%;
+	margin-right: 5%;
+	/* margin-top: 1000px; */
+}
+
+.page2-one{
+margin-right: 5%;
+width: 20%;
+color: #ffffff;
+display: inline-block;
+float: left;
+}
+
+.share-text{
+	position: relative;
+	top: 1px;
+	font-size: 12px;
+	font-family: 'Abraham Lincoln';
+	/* width: 150px;
+	height: 300px;
+	margin: 25%; */
+}
+
+/* This is page3  */
+.bg.page3{
+	background-image: url("../image3/WeAreUnity.png"); 
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: grey; 
+	width: 100%;
+	height: 1322px;
+
+
+}
+
+.page3-clients{
+	margin-left: 789px;
+    margin-top: 197px;
+}
+
+.page3 > p {
+	margin-left: 310px;
+	margin-top: 54px;
+	margin-bottom: 1px;
+	font-size: 30px;
+	text-align: center;
+	color: black;
+}
+
+.page3-button{
+	/* margin-left: 512px;
+	margin-top: 50px; */
+	margin-left: 789px;
+}
+
+.page3-basket, .page3-pen1, .page3-pen2, .page3-frame, .page3-02{
+
+} 
+
+.page3 > h1 {
+	margin-left: 710px;
+	margin-top: 54px;
+	margin-bottom: 1px;
+	font-size: 30px;
+	text-align: right;
+	color: black;
+}
+.page3 p {
+	margin-left: 710px;
+	margin-top: 54px;
+	margin-bottom: 1px;
+	font-size: 10px;
+	text-align: right;
+	color: black;
+}
+
+
+
+/* This is page4  */
+.bg.page4{
+	background-image: url("../image5/snow.png");
+
+}
+.page4-frame{
+	width: 300px;
+	height: 300px;
+	z-index: 0;
+}
+.page4-man{
+    position: relative;
+	top: -46px;
+    left: -203px;
+	width: 400px;
+	height: 400px;
+	z-index: 1;
+}
+.page4-do{
+    background-position: center;
+	background-size: cover;
+	background-color: purple;
+	width: 150px;
+	height: 120px;
+		top: 189px;
+    left: -144px;
+	z-index: 2;
+}
+
+.page4-table{
+	position: relative;
+	top: 4px;
+    left: 5px;
+    width: 400px;
+	height: 400px;
+}
+/* This is page5  */
+.page5{
+	background-image: url("../image5/snow.png"); 
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	height: 500px;
+}
+.page5-global1{
+	text-transform: uppercase;
+	text-align: center;
+	font-family: 'Abraham Lincoln';
+	font-size: 10px;
+	position: relative;
+	width: auto;
+}
+.page5-global2{
+	text-transform: uppercase;
+	text-align: center;
+	font-family: 'Abraham Lincoln';
+	font-size: 6px;
+	position: relative;
+	width: auto;
+}
+
+.page5-customer{
+	text-transform: uppercase;
+	text-align: center;
+	font-family: 'Abraham Lincoln';
+	font-size: 6px;
+	position: absolute;
+	top: 3000px;
+    /* right: 918px; */
+	margin: auto;
+}
+
+.page5-man-wrapper{
+	float: left;
+	clear: both;
+	width: 100%;
+	height: 400px; 
+}
+
+.page5-man3{
+	width: 30%;
+	height: 400px; 
+	margin-right: 2%;
+	background-color: white;
+	float: left;
+	clear: both;
+}
+.page5-man3:nth-child(2){
+	width: 30%;
+	height: 400px; 
+	margin-right: 2%;
+	background-color: blue;
+	float: left;
+	clear: both;
+}
+/* 
+.page5-man2{
+	width: 30%;
+	height: 400px; 
+	margin-right: 2%;
+	background-color: blue;
+	float: left;
+	clear: both;
+}
+.page5-man3{
+	width: 30%;
+	height: 400px; 
+	margin-right: 2%;
+	background-color: white;
+	float: left;
+	clear: both;
+} */
+
+/* This is Footer page  */
+.footer{
+	background-image: url("../image5/prototype_0006s_0001_Rectangle-14-copy.png");
+	background-color: black;
+	position: absolute;
+	top: 7050px;
+	width: 100%;
+	height: 500px;
+	font-family: 'Abraham Lincoln';
+	font-size: 5px;
+}
+
+.footer-div1{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	float: left;
+}
+.footer-phone,  .footer-unity, .footer-mail{
+    position: relative;
+	width: 30%;
+	margin-right: 10px;
+	/* height: 50px; */
+	/* float: left; */
+	clear: both;
+}
+
+.footer-girl, .footer-subscribe, .footer-3icon {
+    position: relative;
+	width: 20%;
+	height: 50px;
+	float: left;
+	clear: both;
+}
+
+.footer-media{
+    position: relative;
+	width: 5px;
+	height: 5px;
+	float: left;
+	clear: both;
+}
