@@ -13,13 +13,6 @@ h1 {
   font-weight: bold;
 }
 
-.container-fluid {
-  margin: 0em auto;
-  /* max-width: 1630px; */
-  background-color: black;
-  /* text-align: center; */
-}
-
 /* COLORS: 
   blue: #20A1D4;
   green: #1CBC2C;
@@ -31,28 +24,69 @@ h1 {
 
 /* Your CSS goes here */
 
+.container-fluid {
+  margin: 4em 2em auto 2em;
+  background-color: grey;
+}
+
+ .navbar{
+  display: inline;
+ }
+
+.NORT-color h1{
+  /* color: black; */
+  text-align: left;
+  letter-spacing: 10px;
+  font: 15px;
+  }
+
+.NORT-color{
+color: orange;
+letter-spacing: 10px;
+font: 15px;
+}
+
+.NORT-color > p{
+	text-align: center;
+	font: 15px;
+	width: 400px;
+	letter-spacing: 50px;
+	text-transform: uppercase;
+	color: black;
+}
+
+.nav1 li, .nav2 li
+{
+	float: left;
+	display: inline;
+	padding: 20px;
+}
+
+.login, .lang{
+	width: 60px;
+	border: 1px solid white;
+	/* text-color: light grey; */
+	font-weight: bold;
+  }
+
+  
+#Services, #Products{
+  color: black;
+ }
+
+ 
 .home-page-1 row{
   background-color: black;
-  /* width: 800px;
-  height: 40px; */
   margin-left: 80px;
   margin-right: 80px;
   margin-top: 80px;
   margin-bottom: 10px;
   display: inline;
   height: 800px; 
- /* border: 2px solid black;
-  color: white;
-  text-align: center; */
+ /* border: 2px solid black; */
 }
 
-.nortsea row{
-	display: inline;
-	/* height: 100px;  */
-	/* width: 100%; */
-}
-
-.col-md-2{
+.col-md-3{
 	background-color: white;
 	width: 400px;
 	height: 100px; 
@@ -62,27 +96,6 @@ h1 {
 	text-transform: uppercase;
 	/* margin-top: 80px;
 	margin-bottom: 10px; */
-}
-
-.col-md-2 > h1{
-	margin-left: 100px;
-	text-align: left;
-	font: 10px;
-	text-transform: uppercase;
-}
-
-.col-md-2 > p{
-	text-align: center;
-	font: 5px;
-	width: 400px;
-	letter-spacing: 15px;
-	text-transform: uppercase;
-	color: black;
-}
-
-.col-md-2 .NORT-color{
-	color: orange;
-	text-transform: uppercase;
 }
 
 .col-md-10, .col-md-10 row{
@@ -98,29 +111,13 @@ h1 {
 	margin-top: -60px;
 }
 
-#Services, #Products{
- color: black;
+
+.home-page-you row p{
+  display: inline;
+  font: 30px;
 }
 
-.nav1 li, .nav2 li
-{
-	float: left;
-	display: inline;
-	padding: 20px;
-}
-
-.login, .lang{
-	width: 60px;
-	border: 1px solid white;
-	text-color: light grey;
-	font-weight: bold;
-  }
-
-.home-page-you row {
-	display: inline;
-}
-
-.col-md-10 h1{
+/* .col-md-10 h1{
 	font-size: 20px;
 }
 .col-md-10 p{
@@ -134,14 +131,14 @@ h1 {
 
 .col-md-10 .slides{
 	mrgin-left: 0px;
-}
+} 
 
 
 .home-page-you row .col-md-2{
 	height: auto;
 }
 
-
+*/
 
 
 .home-page-2 row{
@@ -158,86 +155,6 @@ h1 {
 	margin-right: 0px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-.midBox{
-  background-color: white;
-  width: 280px;
-  height: 200px;
-  text-align: center;
-  margin-left: 180px;
-  border: 2px solid black;
+.home-page-2 row{
+	background: white;
 }
-
-.midTopBox{
-  background-color: red;
-  width: 280px;
-  height: 12px;
-  border: 2px solid black;
-}
-
-.midMidBox{
-  width: 280px;
-  height: 150px;
-}
-
-.midBox > p{
-  margin-left: -140px;
-  color: blue;
-  text-style: italics;
-  font-weight: bold;
-}
-
-.textRed{
-color: red;
-}
-
-.dollar{
-  background: white;
-  margin-top: 10px;
-  margin-right: 30px;
-  margin-left: 20px;
-  margin-bottom: auto;
-  width: 100px;
-  height: 50px;
-  float: left;
-  position: relative;
-  border: 2px solid black;
-  text-color: light grey;
-  font-weight: bold;
-}
-
-.giveButton{
-  background: green;
-  margin-top: 10px;
-  width: 100px;
-  height: 50px;
-  margin-right: 20px;
-  float: left;
-  position: relative;
-  border: 2px solid black;
-  font-weight: bold;
-  color: white;
-}
-
-.botmBoxLeft, .botmBoxRight{
-  margin-top: 30px;
-  width: 130px;
-  height: 30px;
-  margin-right: -160px;
-  float: left;
-  margin-left: 180px;
-  border: 2px solid black;
-  font-weight: bold;
-  color: light grey;
- }
- 
