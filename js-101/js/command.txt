@@ -1,0 +1,9 @@
+gLib.addBook(gIt1)
+gLib.addBook(gCatcher2)
+gLib.addBook(gBootStrap3)
+gLib.addBook(gJavaScript4)
+gLib.addBook(gHtmlCss5)
+gLib.addBook(gHtmlCss6)
+gLib.addBook(gBootStrap7)
+
+var ([gHtmlCss5, gHtmlCss6, gBootStrap7])

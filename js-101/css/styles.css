@@ -1,0 +1,117 @@
+.container-fluid{
+	background-color: black;
+}
+
+.LOGIN, .LANG{
+	border: 1px solid white;
+	padding: 1px;
+	margin: 5px;
+	text-color: white; 
+	font-weight: bold;
+  }
+
+ #Services, #Products{
+  color: black;
+ }
+
+ P{
+	font-size: 15px;
+
+}
+
+.frame-aboutus{
+	background-color: white;
+	width: 100%;
+	height: 600px;
+}
+ 
+.home-page-1 .row{
+  background-color: black;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-top: 80px;
+  margin-bottom: 10px;
+  display: inline;
+  height: 800px; 
+ /* border: 2px solid black; */
+}
+
+.home-page-you .row p{
+  display: inline;
+  font: 30px;
+}
+
+.home-page-2 .row{
+	background-color: black;
+	width: 280px;
+	height: 40px;
+	margin-left: 180px;
+	margin-bottom: 5px;
+	/* border: 2px solid black; */
+	/* text-align: center; */
+  }
+
+.weather, .gallery, .tour{
+	margin-right: 0px;
+}
+
+
+.card-deck .card{
+	/* padding: bold;
+	border: 2px; */
+	border: 5px solid black;
+	font-weight: bold;
+	padding: 4%;
+	width: 40rem;
+	margin: 5% 5% 5% 1%;
+}
+
+.card-title, .card-text{
+	font-weight: bold;
+	text-align: center;
+}
+
+
+
+.home-page-2 .row{
+	background-color: black;
+}
+
+.footer .row{
+ background-color: black;
+}
+
+.footer2 .row{
+  background-color: black;
+ } 
+
+ .aboutus .row p{
+	 color: yellow;
+	 font-size: 10px;
+	 font-weight: bold;
+	 text-align: center;
+	 font-weight: bold;
+	 /* padding: 4%;
+	 width: 40rem;
+	 margin: 5% 5% 5% 1%; */
+ }
+
+ .gallery-container{
+	 background-color: white;
+ }
+
+
+
+ /* separate sheet for the media Query*/
+
+ @media only screen and (max-width: 414px){
+	 body{
+		 background-color: lightblue;
+	 }
+ }
+
+ @media only screen and (min-width: 768px){
+	body{
+		background-color: blanchedalmond;
+	}
+ }
