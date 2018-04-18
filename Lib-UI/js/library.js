@@ -1,30 +1,14 @@
-(function(){
-  var singleton;
-  window.Library = function(){
-    if (singleton){
-      return singleton;
-    }
-    singleton = this;
-  }
-})();
-
-Libaray.prototype.init = function(){
-this.$btn = $("button");
-  this._bindEvents();
-  return false;
+var Library =  function(){
+  this.myBookArray = new Array();
+  this.myTaskArray = new Array();
 };
 
-Libaray.prototype._bindEvents = function(){
-
+var Book = function(title, author, numPages, pubDate){
+  this.title =  title;
+  this.author = author;
+  this.numPages = numPages;
+  this.publishDate = new Date(pubDate);
 };
-
-Libaray.prototype._handleClick = function(){
-  alert("fired");
-  return false;
-};
-
-Library.prototype.myBookArray = [];
-library.prototype.myTaskArray = [];
 
 Library.prototype.addBook =  function (book) {
   // add A book only
@@ -235,20 +219,9 @@ Library.prototype.getRandomBook = function () {
 
 //Lib instance
 var gLib = new Library();
-var dLib = new Library();
-
 // window.gLib.init();
-var Book = function(title, author, numPages, pubDate){
-  this.title =  title;
-  this.author = author;
-  this.numPages = numPages;
-  this.publishDate = new Date(pubDate);
-};
- //document ready
- $(function){
 
 
- }
 // book instances
 // toUpperCase()
 // var gIt0 = new Book({title: "IT", author: "S King", numPages: 800, pubDate: "Decembher 17, 1995 03:24:00"}); // problem
