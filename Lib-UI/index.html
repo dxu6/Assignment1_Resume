@@ -1,75 +1,118 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>On-Line Library Application with UI</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
+      <meta charset="utf-8">
+      <title>On-Line Library Application with UI</title>
+      <link rel="stylesheet" href="css/bootstrap.css">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/fontello.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="viewport" rel="stylesheet" href="css/style.css">
+      <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+      <script src="js/jquery.js" charset="utf-8"></script>
+      <script src="js/libray.js" charset="utf-8"></script>
   </head>
+
   <body>
-    <div class="container-fluid">
-         <h1><center> On-Line Library Application with UI<img src="img/boulder.jpg"></center></h1>
+      <div class="container-fluid">
+         <h1>
+             <center> On-Line Library Application with UI
+                <img src="img/boulder.jpg">
+             </center>
+         </h1>
 
-         <div class="row mt-5">
-               <div class="col col-md-6">
-                   <textarea name="add" rows="1" cols="30"></textarea>
-                   <button type="button" name="addABook">AddABook</button>
-               </div>
+          <h3>Functions for this Application: </h3>
+          <!-- Application design layout as dropdown -->
+          <div class="header row">
+                <div class="col-md-1 mt-1"><img src="img/books.jpg" width="50" height="50">
+                </div>
 
-               <div class="col col-md-6">
-                    <textarea name="add" rows="2" cols="30"></textarea>
-                    <button type="button" name="addBooks">AddBooks</button>
-               </div>
+                <div class="col-md-11 mt-1">
+                      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                              <ul class="navbar-nav col-md-12">
+                                    <li class="nav-item dropdown col-md-2">
+                                      <a class="nav-link dropdown-toggle" href="#" id="navbarAdd" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                         ADDBOOK
+                                      </a>
+                                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">addABook</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">addBooks</a>
+                                      </div>
+                                    </li>
+
+                                    <li class="nav-item dropdown col-md-2">
+                                      <a class="nav-link dropdown-toggle" href="#" id="navbarAdd" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                         REMOVEBOOK
+                                      </a>
+                                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">removeBookByTitle</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">removeBookByAuthor</a>
+                                      </div>
+                                    </li>
+
+                                    <li class="nav-item dropdown col-md-3 ml-1">
+                                      <a class="nav-link dropdown-toggle" href="#" id="navbarGet" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                         GETBOOK
+                                      </a>
+                                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">getBookByTitle</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">getBooksByAuthor</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">getAuthors</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">getRandomAuthorName</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">getRandomBookByTitle</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">getRandomBookByAuthor</a>
+                                      </div>
+                                    </li>
+                                    <input class="form-control col-md-3" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-success col-md-1 ml-1" type="submit">Search</button>
+                              </ul>
+                          </div>
+                      </nav>
+                    </div>
+                </div>
           </div>
 
-          <div class="row mt-5">
-            <div><button type="button" class="RandomTitle col-md-6">getRandomBookByTitle</button></div>
-            <div><button type="button" class="RandomAuhtor col-md-6">getRandomBookByAuthor</button></div>
-           </div>
+          <!-- display data area as CARD and table -->
+          <div class="card border-success mt-5" style="max-width: 50rem;">    <!-- mixins utilities -->
+                <div class="card-header bg-transparent border-success">
+                  <table>
+                        <thead>
+                              <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>numPages</th>
+                                <th>pubDate</th>
+                              </tr>
+                        </thead>
+                        <tbody id="bookTableBody">
+                        </tbody>
+                  </table>
 
-          <div class="row mt-5">
-             <div><button type="button" class="removeTitle col-md-6">removeBookByTitle</button></div>
-             <div><button type="button" class="removeAuthor col-md-6">removeBookByAuthor</button></div>
-           </div>
+                </div>
+                <div class="card-body text-success">
 
-            <div class="row mt-5">
-              <div><button type="button" class="searchTitle col-md-6">searchByTitle</button></div>
-              <div><button type="button" class="searchAuthor col-md-6">searchByAuthor</button></div>
-             </div>
-    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="card-footer bg-transparent border-success"><h6>Results shown above after your operations</h6>
+                </div>
+          </div>
 
-<!--
-    <button type="button" name="button"> Click the Button</button>
-    <h1>This is my Library</h1>
-    <ul class="list-group">
-      <li class="list-group-item">What is your favorite color?</li>
-      <li class="list-group-item">
-        <input type="text" name="" value="" class="question" />
-      </li>
-      <li class="list-group-item">
-        <span>Answer: </span>
-        <span class="answer"></span>
-      </li>
-      <li class="list-group-item">What is your favorite food?</li>
-      <li class="list-group-item">
-        <input type="text" name="" value="" class="question">
-      </li>
-      <li class="list-group-item">
-        <span>Answer: </span>
-        <span class="answer"></span>
-      </li>
-      <li class="list-group-item">What is your favorite food?</li>
-      <li class="list-group-item">
-        <input type="text" name="" value="" class="question">
-      </li>
-      <li class="list-group-item">
-        <span>Answer: </span>
-        <span class="answer"></span>
-      </li>
-    </ul> -->
-
-    <script src="js/jquery.js" charset="utf-8"></script>
-    <script src="js/add.js" charset="utf-8"></script>
+      </div>
   </body>
 </html>

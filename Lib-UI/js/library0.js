@@ -10,7 +10,6 @@ var Book = function(title, author, numPages, pubDate){
   this.publishDate = new Date(pubDate);
 };
 
-
 Library.prototype.addBook =  function (book) {
   // add A book only
   for (i = 0; i < this.myBookArray.length; i++) {
@@ -22,7 +21,6 @@ Library.prototype.addBook =  function (book) {
        this.myBookArray.push(book);
        return true;
 };
-
 
 Library.prototype.removeBookByTitle =  function (title) {
   // remove all matched books by Title
@@ -202,6 +200,7 @@ Library.prototype.getRandomBook = function () {
     }
       console.log(searchArray);
   };
+
 //    library.prototype.init = function () {
 //         this.addBook(book); //
 //         this.removeBookByTitle(title);
@@ -216,54 +215,15 @@ Library.prototype.getRandomBook = function () {
 //         this.getLocalStorage();
 //         this.search();
 //   };
-
-//Bind listeners
-Libray.prototype.init = function () {
-  this.$alertBtn = $("button.alert");
-  this.$changeBtn = $("button.change-text");
-  this.$logBtn = $("button.log-hello");
-
-  this._bindEvents();
-  return false;
-};
-
-Libray.prototype._bindEvents = function(){
-  this.$alertBtn.on("click", $.proxy(this._handleAlert, this));
-  this.$changeBtn.on("click", $.proxy(this._handleText, this));
-  this.$logBtn.on("click", $.proxy(this._handleLog, this));
-  return false;
-};
-
-Libray.prototype._handleAlert = function(){
-  alert("fired!");
-  return false;
-};
-
-Libray.prototype._handleText = function(){
-  alert("fired!");
-  return false;
-};
-Libray.prototype._handleLog = function(){
-  alert("fired!");
-  return false;
-};
-
-  this._sendBtn.addEventListener("click", ;
-  function(e){
-    for(i=0; i < _self._answerBox.length; i++){
-      var myAnswer = _self._answerBox[i].value;
-      _self._showAnswer[i].innerText = myAnswer ? myAnswer : "--";
-    }
-  });
-};
-
+//
 
 //Lib instance
 var gLib = new Library();
-window.gLib.init();
+// window.gLib.init();
 
 
 // book instances
+// toUpperCase()
 // var gIt0 = new Book({title: "IT", author: "S King", numPages: 800, pubDate: "Decembher 17, 1995 03:24:00"}); // problem
 var gIt0 = new Book("IT","S King",800,"Decembher 17, 1995 03:24:00");
 var gIt1 = new Book("IT","Stephen King",800, "Decembher 17, 1995 03:24:00");
