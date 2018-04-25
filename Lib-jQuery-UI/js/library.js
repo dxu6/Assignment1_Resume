@@ -3,15 +3,98 @@ var Library =  function(){
   this.myTaskArray = new Array();
 };
 
-var Book = function(title, author, numPages, pubDate){
+var Book = function(title, author, numPages, pubDate, image){
   this.title =  title;
   this.author = author;
   this.numPages = numPages;
   this.publishDate = new Date(pubDate);
+  this.image = image;
 };
 
 
-Library.prototype.addBook =  function (book) {
+// Bind listeners
+Libray.prototype.init = function () {
+  // #id_topSearchText
+  // #id_topSearchButton
+  //
+  // #id_dataTable
+  // #id_dataTableTitle
+  // #id_dataTableAuthor
+  // #id_dataTableNumPages
+  // #id_dataTablePubDate
+  // #id_dataTableImage
+  // #id_dataTableRemove
+  //
+  // #id_footTitle
+  // #id_footAuthor
+  // #id_footNumPages
+  // #id_footPubDate
+  // #id_footImage
+  //
+  // #id_footAddBook
+  // #id_footAddBooks
+  // #id_footRename
+  // #id_footRemove
+
+// this.$myDataTable = $("#id_dataTable");
+this.libURL = "www.techtonicgroup.com";
+
+this._bindEvents();
+this._setLocalStorage("DX");
+this._getLocalStorage("DX");
+this._renderTable();
+};
+
+
+Libray.prototype._bindEvents = function(){
+  $("#id_dataTable").on("click", ".remove", $.proxy(this._removeHandler, this)); //delegation
+  $("#id_getAuthors").on("click", $.proxy(this._getAuthors, this));
+  $("#id_getAuthors").on("click", $.proxy(this._getAuthors, this));
+  $("#id_getAuthors").on("click", $.proxy(this._getAuthors, this));
+};
+
+library.prototype._removeHandler = function(e){
+  $(e.currentTarget).parent("tr").remove();
+};
+
+library.prototype._renderTable = function(){
+  for(var i=0; i < this.myBookArray.length; i++){
+    this._renderRow(i, this.myBookArray[i]);
+  }
+};
+
+library.prototype._renderRow = function(index, book){
+  $("#id_dataTable").append("<tr data-id='"+index+"'><th scope='row'>"+index+"</th><td>"+book.title+"</td><td>"+book.auth+"</td><td>"+book.numPages+"</td><td class='remove'>Remove</td>
+                          </tr>");
+};
+
+
+//  library.prototype.    function () {
+//       this._addBook(book); //
+//       this._removeBookByTitle(title);
+//       this._removeBookByAuthor(authorName);
+//       this._getRandomBook();
+//       this._getBookByTitle(title);
+//       this._getBooksByAuthor(authorName);
+//       this._addBooks(books);
+//       this._getAuthors();
+//       this._getRandomAuthorName();
+//       this._successBookAdded();
+//       this._setLocalStorage();
+//       this._getLocalStorage();
+//       this._search();
+//       this._bindEvents();
+//       this._renderTable();
+//       this._renderRow();
+//       this._removeHandler();
+// };
+
+
+Library.prototype._addBook =  function (book) {
+  if (book == null) {
+    console.log("No Book Argument");
+    return false;
+  }
   // add A book only
   for (i = 0; i < this.myBookArray.length; i++) {
     if ((this.myBookArray[i].title.toUpperCase() === book.title.toUpperCase()) &&
@@ -20,11 +103,16 @@ Library.prototype.addBook =  function (book) {
     }
   }
        this.myBookArray.push(book);
+       localStorage.setItem("DX", JSON.stringify(this.myBookArray))
+
+       //Ajax post to add books
+       $.post(this.libURI, book, $.proxy(this._successBookAdded, this), "json");
+
        return true;
 };
 
 
-Library.prototype.removeBookByTitle =  function (title) {
+Library.prototype._removeBookByTitle =  function (title) {
   // remove all matched books by Title
   // case insensitive
   var status = false;
@@ -39,7 +127,7 @@ Library.prototype.removeBookByTitle =  function (title) {
        return status;
 };
 
-Library.prototype.removeBookByAuthor =  function (authorName) {
+Library.prototype._removeBookByAuthor =  function (authorName) {
  // remove all matched books by AUthor authorNames
  // case insensitive
   var origLength = this.myBookArray.length;
@@ -58,7 +146,7 @@ Library.prototype.removeBookByAuthor =  function (authorName) {
      }
 };
 
-Library.prototype.getRandomBook = function () {
+Library.prototype._getRandomBook = function () {
   // generate a Random number [0, length]
   // index of an array [0, lemgth-1]
   console.log(this.myBookArray.length);
@@ -78,7 +166,7 @@ Library.prototype.getRandomBook = function () {
                    }
 };
 
-  Library.prototype.getBookByTitle =  function (subTitle) {
+  Library.prototype._getBookByTitle =  function (subTitle) {
     // partially match by substring of subTitle
     // case insensitive
     // return matched array
@@ -93,7 +181,7 @@ Library.prototype.getRandomBook = function () {
          console.log(this.myTaskArray);
   };
 
-  Library.prototype.getBooksByAuthor =  function (subAuthor) {
+  Library.prototype._getBooksByAuthor =  function (subAuthor) {
     // partially match by substring of author names
     // case insensitive
     // return matched array
@@ -111,7 +199,7 @@ Library.prototype.getRandomBook = function () {
         console.log(this.myTaskArray);
   };
 
-  Library.prototype.addBooks =  function (booksList) {
+  Library.prototype._addBooks =  function (booksList) {
     //booksList is an array with multiple books
     // call addBook() for single book by FOR loop
     this.myTaskArray = ([]);
@@ -123,7 +211,7 @@ Library.prototype.getRandomBook = function () {
     else {
               for (i = 0; i < booksList.length; i++)
                 {
-                 this.addBook(booksList[i]);
+                 this._addBook(booksList[i]);
                  this.myTaskArray.push(booksList[i]);
                   count = count + 1;
                  }
@@ -132,10 +220,14 @@ Library.prototype.getRandomBook = function () {
           console.log(this.myTaskArray);
   };
 
-  Library.prototype.getAuthors =  function () {
+  Library.prototype._getAuthors =  function () {
     // get authors by  complete names
     // case insensitive
     // return matched array
+    // $(".auth").each(function(i,v){
+    //   distinctArray.push($(v).text());
+    // });
+    //   alert(distinctArray.join(","));
 
         var distinctArray = [];
         if (this.myBookArray.length == 0) {
@@ -159,7 +251,8 @@ Library.prototype.getRandomBook = function () {
               console.log(distinctArray);
 };
 
-  Library.prototype.getRandomAuthorName =  function () {
+
+  Library.prototype._getRandomAuthorName =  function () {
     // get the entire Author Name by random
         var distinctAuthors = [];
         if (this.myBookArray.length == 0) {
@@ -175,19 +268,24 @@ Library.prototype.getRandomBook = function () {
   };
 
   // Bonus parts
-  Library.prototype.setLocalStorage =  function (instanceKey) {
-          localStorage.setItem(instanceKey, JSON.stringify(this.myBookArray));
+  Library.prototype._successBookAdded =  function (Book) {
+          this.myBookArray.push(Book);
+          this._setLocalStorage();
   };
 
-  Library.prototype.getLocalStorage = function(instanceKey) {
+  Library.prototype._setLocalStorage =  function () {
+          localStorage.setItem("DX", JSON.stringify(this.myBookArray));
+  };
+
+  Library.prototype._getLocalStorage = function() {
       // return this.myBookArray = JSON.parse(localStorage.getItem(instanceKey));
-      this.myBookArray = JSON.parse(localStorage.getItem(instanceKey));
+      this.myBookArray = JSON.parse(localStorage.getItem("DX"));
       if (this.myBookArray === null) {this.addBook();}
       return this.myBookArray;
   };
 
   // search options either by Title or Authors
-  Library.prototype.search =  function (filterString) {
+  Library.prototype._search =  function (filterString) {
      // search the Title or Author fields to match filterString
     // no usin filter() pre-defined functions
 
@@ -202,66 +300,118 @@ Library.prototype.getRandomBook = function () {
     }
       console.log(searchArray);
   };
-//    library.prototype.init = function () {
-//         this.addBook(book); //
-//         this.removeBookByTitle(title);
-//         this.removeBookByAuthor(authorName);
-//         this.getRandomBook();
-//         this.getBookByTitle(title);
-//         this.getBooksByAuthor(authorName);
-//         this.addBooks(books);
-//         this.getAuthors();
-//         this.getRandomAuthorName();
-//         this.setLocalStorage();
-//         this.getLocalStorage();
-//         this.search();
-//   };
 
-//Bind listeners
-Libray.prototype.init = function () {
-  this.$alertBtn = $("button.alert");
-  this.$changeBtn = $("button.change-text");
-  this.$logBtn = $("button.log-hello");
 
-  this._bindEvents();
-  return false;
+  Library.prototype._origLibray = function(){
+        var origLibraryData = [];
+        for (var i = 0; i < this.myBookArray.length; i++){
+          origLibarayData = "<tr>" +
+                            "<td>" +this.myBookArray[i].title + "</td>" +
+                            "<td>" +this.myBookArray[i].author + "</td>" +
+                            "<td>" +this.myBookArray[i].numPages + "</td>" +
+                            "<td>" +this.myBookArray[i].pubDate + "</td>" +
+                            "<td>" +this.myBookArray[i].image + "</td>" +
+                            // "<td>" +this.myBookArray[i].update + "</td>" +
+                            "</tr>";
+        $("#id_dataTable").append(origLibraryData);
+      };
 };
 
-Libray.prototype._bindEvents = function(){
-  this.$alertBtn.on("click", $.proxy(this._handleAlert, this));
-  this.$changeBtn.on("click", $.proxy(this._handleText, this));
-  this.$logBtn.on("click", $.proxy(this._handleLog, this));
-  return false;
+Library.prototype._showLibrary = function(){
+        var origLibraryData = [];
+        for (var i = 0; i < this.myBookArray.length; i++){
+          origLibarayData = this.myBookArray[i].title + " " +
+                            this.myBookArray[i].author + " " +
+                            this.myBookArray[i].numPages + " " +
+                            this.myBookArray[i].pubDate + " " +
+                            this.myBookArray[i].image;
+                            // this.myBookArray[i].image + " " +
+                            // this.myBookArray[i].update;
+          $("#id_dataTable tr").append("<td>origLibraryData</td>");
+        };
 };
 
-Libray.prototype._handleAlert = function(){
-  alert("fired!");
-  return false;
+Library.prototype._sortLibrary = function(){
+        switch ("#id_dataTable th") {
+
+                case ("#id_dataTableTitle"):
+                    $('#id_dataTable').DataTable( {
+                      "order": [[0, "desc" ]]
+                  });
+                break;
+
+                case ("#id_dataTableAuthor"):
+                      $('#id_dataTable').DataTable( {
+                        "order": [[1, "desc" ]]
+                    });
+                break;
+
+                case ("#id_dataTableNumPages"):
+                        $('#id_dataTable').DataTable( {
+                          "order": [[2, "desc" ]]
+                      });
+                break;
+
+                case ("#id_dataTablePubDate"):
+                          $('#id_dataTable').DataTable( {
+                            "order": [[2, "desc" ]]
+                        });
+                break;
+
+                default:
+                        $('#id_dataTable').DataTable( {
+                                  "order": [[0, "asc" ], [1, "asc" ], [2, "asc" ], [3, "asc" ]]
+                          // "order": [[0, "asc" ], [1, "asc" ], [2, "asc" ], [3, "asc" ], [4, "asc" ]]
+                      });
+      }
 };
 
-Libray.prototype._handleText = function(){
-  alert("fired!");
-  return false;
-};
-Libray.prototype._handleLog = function(){
-  alert("fired!");
-  return false;
-};
+/////////////////////////////////////////////////////////////////////////
+    $("#id_topSearchButton").on("click", function()
+            { // var passingval= $("textarea").val(); alert(passingval);
+                  //addABook
+                  var searchVal = $("#id_topSearchText").val();
+                  if (searchVal !== null) {
+                      Library.prototype.search(searchVal);
+                 }
+                      Library.prototype.showLibrary();
+            }
 
-  this._sendBtn.addEventListener("click", ;
-  function(e){
-    for(i=0; i < _self._answerBox.length; i++){
-      var myAnswer = _self._answerBox[i].value;
-      _self._showAnswer[i].innerText = myAnswer ? myAnswer : "--";
-    }
-  });
-};
+    );
+
+    $("#id_topSearchButton").on("click", function()
+            { // var passingval= $("textarea").val(); alert(passingval);
+
+            }
+
+    );
+/////////////////////////////////////////////////////////////////////////
+
+
 
 
 //Lib instance
-var gLib = new Library();
-window.gLib.init();
+    $(document).ready(function(){
+        window.gLib = new Library();
+        var gLib = window.gLib;
 
+
+        gLib.init();
+        // var instanceKey = "dx";
+        // gLib.addBooks(allBooks);
+        // gLib.addBook(gIt1);
+
+        $('#id_dataTable').DataTable({
+          data: gLib.myBookArray,
+          columns: [
+                      {data: 'title'},
+                      {data: 'author'},
+                      {data: 'numPages'},
+                      {data: 'pubDate'},
+                      {data: 'image'}
+                   ]
+        });
+});
 
 // book instances
 // var gIt0 = new Book({title: "IT", author: "S King", numPages: 800, pubDate: "Decembher 17, 1995 03:24:00"}); // problem
@@ -291,6 +441,7 @@ var allBooks = ([
     numPages: 800,
     pubDate: "Decembher 17, 1995 03:24:00"
   },
+
   {title: "Catcher In the Rye",
   author: "JD Salinger",
   numPages: 600,
