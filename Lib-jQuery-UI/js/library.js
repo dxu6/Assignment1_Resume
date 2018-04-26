@@ -34,7 +34,7 @@ $(document).ready(function(){
 // Bind listeners
 Library.prototype.init = function () {
   // #id_topSearchText
-  // #id_topSearchButton
+  // #id_topSubmitButton
   //
   // #id_dataTable
   // #id_dataTableTitle
@@ -92,7 +92,7 @@ this._bindEvents();
 
 Library.prototype._bindEvents = function(){
   // $("#id_dataTable").on("click", ".id_footRemove", $.proxy(this._removeHandler, this)); //delegation
-  $("#id_topSearchButton").on("click", $.proxy(this._footRemoveHandler, this));
+  $("#id_topSubmitButton").on("click", $.proxy(this._footRemoveHandler, this));
   $("#id_footRemove").on("click", $.proxy(this._footRemoveHandler, this));
   $("#id_footAddBook").on("click", $.proxy(this._footAddBookHandler, this));
   $("#id_footAddBooks").on("click", $.proxy(this._footAddBooksHandler, this));
@@ -105,25 +105,31 @@ Library.prototype._footRemoveHandler = function(e){
 
        this._removeBookByTitle($("#id_footTitle").val());
        // e._removeBookByAuthor($("#id_footAuthor").val());
-       this._tableRedraw();
+       // this._tableRedraw();
        // this._setLocalStorage();
+          $("#id_dataTable").remove();
+          this._getLocalStorage();
+          $('#id_dataTable').DataTable().draw(false);
+          alert("DataTable Redraw/RenderTable is not refreshing display!");
+
+
 };
 
-// Library.prototype._footAddBookHandler = function(e){
-//    //  $(e.currentTarget).parent("tr").remove();
-//    //  $(e.currentTarget).remove();
-//    //  $("#id_dataTable").remove();
-//        alert("warning");
-//        var book = new Book([
-//          {  title: $("#id_footTitle").val(),
-//             author: $("#id_footAuthor").val(),
-//             numPages: $("#id_footNumPages").val(),
-//             pubDate: $("#id_footPubDate").val(),
-//             cover: "",
-//             action:""
-//          }]);
-//        e._addBook(book);
-// };
+Library.prototype._footAddBookHandler = function(e){
+   //  $(e.currentTarget).parent("tr").remove();
+   //  $(e.currentTarget).remove();
+   //  $("#id_dataTable").remove();
+       alert("warning");
+       var book = new Book([
+         {  title: $("#id_footTitle").val(),
+            author: $("#id_footAuthor").val(),
+            numPages: $("#id_footNumPages").val(),
+            pubDate: $("#id_footPubDate").val(),
+            cover: "",
+            action:""
+         }]);
+       e._addBook(book);
+};
 
 // Library.prototype._footAddBooksHandler = function(e){
 //    //  $(e.currentTarget).parent("tr").remove();
@@ -161,10 +167,11 @@ Library.prototype._tableRedraw = function () {
         // this.myBookArray.push(Book);
         // this._setLocalStorage();
         // var table = $('#id_dataTable').DataTable();
-        $('#id_dataTable').DataTable().ajax.reload();
         // Sort by column 1 and then re-draw
             // .order( [[ 1, 'asc' ]] )
             // .draw(false);
+      // $('#id_dataTable').DataTable().ajax.reload();
+      alert("DataTable Redraw/RenderTable is not refreshing display!");
 };
 
 Library.prototype._successBookAdded = function (Book) {
@@ -494,14 +501,6 @@ var gBootStrap7 = new Book("Boot","Kyle Brothis",400, "May 5, 2018 16:50:00","")
 // authorNames["Stephen King","JD Salinger", "KristineV", "Kyle Brothis", "DavidX" ]
 
 var allBooks = ([
-  {  title: "IT",
-     author: "S King",
-     numPages: 800,
-     pubDate: "Decembher 17, 1995 03:24:00",
-     cover: "",
-     action:""
-  },
-
   { title: "IT",
     author: "Stephen King",
     numPages: 800,
