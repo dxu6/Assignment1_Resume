@@ -1,6 +1,6 @@
 var Library =  function(){
   this.myBookArray = new Array();
-  this.myTaskArray = new Array();
+  this.myTaskArray = new Array(); // subArray for my temp task
 };
 
 var Book = function(title, author, numPages, pubDate, cover, action){
@@ -8,17 +8,18 @@ var Book = function(title, author, numPages, pubDate, cover, action){
   this.author = author;
   this.numPages = numPages;
   this.publishDate = new Date(pubDate);
-  this.cover = cover;
-  this.action = action;
+  this.cover = cover;   // additional to original BOOK constructor
+  this.action = action; // additional to original BOOK constructor
 };
 
 $(document).ready(function(){
     window.gLib = new Library();
     var gLib = window.gLib;
-     // gLib._addBook(gIt0);
-    gLib._addBooks(allBooks);
+
+    gLib.init();   // loading from localStorage
+
     $('#id_dataTable').DataTable({
-      data: gLib.myBookArray,
+      data: gLib.myBookArray,    // mapping DataTable to myBookArray
       columns: [
                   {data: 'title'},
                   {data: 'author'},
@@ -28,11 +29,13 @@ $(document).ready(function(){
                   {data: 'action'}
                ]
     });
-        gLib.init();
 });
 
 // Bind listeners
 Library.prototype.init = function () {
+  // get localStorage as database to pre-load UI Application
+  this._getLocalStorage();
+  this._bindEvents();
   // #id_topSearchText
   // #id_topSubmitButton
   //
@@ -54,26 +57,25 @@ Library.prototype.init = function () {
   // #id_footAddBooks
   // #id_footRename
   // #id_footRemove
-
+  // this._setLocalStorage("DX");
+  // this._renderTable();
 // this.$myDataTable = $("#id_dataTable");
 // this.libURL = "www.techtonicgroup.com";
-
-// this._setLocalStorage("DX");
-// this._getLocalStorage("DX");
-// this._renderTable();
-this._bindEvents();
 };
 
-//  library.prototype.    function () {
+//  function() from library.prototype
 //       this._bindEvents();
-//       this._removeHandler();
-//       this._renderTable();
-//       this._renderRow();
-//       this._removeHandler();
+//       this._footremoveHandler();
+//       this._footAddBookHandler;
+//       this._footAddBooksHandler;
+//       this._topSearchTextsHandHandler
 //       this._successBookAdded()
-//       this._origLibray()
+//       this._tableRedraw
 //       this._showLibrary()
 //       this._sortLibrary()
+//       this._renderTable();
+//       this._origLibray()
+//       this._renderRow();
 
 //       this._addBook(book); //
 //       this._removeBookByTitle(title);
@@ -93,26 +95,34 @@ this._bindEvents();
 Library.prototype._bindEvents = function(){
   // $("#id_dataTable").on("click", ".id_footRemove", $.proxy(this._removeHandler, this)); //delegation
   $("#id_topSubmitButton").on("click", $.proxy(this._footRemoveHandler, this));
-  $("#id_footRemove").on("click", $.proxy(this._footRemoveHandler, this));
-  $("#id_footAddBook").on("click", $.proxy(this._footAddBookHandler, this));
-  $("#id_footAddBooks").on("click", $.proxy(this._footAddBooksHandler, this));
+  $("#id_topSubmitButton").on("click", $.proxy(this._footAddBookHandHandler, this));
+  $("#id_topSubmitButton").on("click", $.proxy(this._footAddBooksHandHandler, this));
+  $("#id_topSubmitButton").on("click", $.proxy(this._topSearchTextsHandHandler, this));
+
+  // $("#id_footRemove").on("click", $.proxy(this._footRemoveHandler, this));
+  // $("#id_footAddBook").on("click", $.proxy(this._footAddBookHandler, this));
+  // $("#id_footAddBooks").on("click", $.proxy(this._footAddBooksHandler, this));
 };
 
 Library.prototype._footRemoveHandler = function(e){
    //  $(e.currentTarget).parent("tr").remove();
-   //  $(e.currentTarget).remove();
-   //  $("#id_dataTable").remove();
+   //  $(e.currentTarget).parent("").parent("").remove();
+   //  $(e.currentTarget).remove().draw();
+   //  $("#id_dataTable").remove().draw();
+       var footTitle = $("#id_footTitle").val();
+       var footAuthor = $("#id_footAuthor").val();
+       if(footTitle !== null){
+          this._removeBookByTitle(footTitle );
+        }
+        else if(footAuthor !== null){
+           this._removeBookByAuthor(footAuthor);
+        }
 
-       this._removeBookByTitle($("#id_footTitle").val());
-       // e._removeBookByAuthor($("#id_footAuthor").val());
-       // this._tableRedraw();
-       // this._setLocalStorage();
-          $("#id_dataTable").remove();
-          this._getLocalStorage();
-          $('#id_dataTable').DataTable().draw(false);
-          alert("DataTable Redraw/RenderTable is not refreshing display!");
+      // $(e.currentTarget).parent("").parent("").remove();
+      // $("#id_dataTable").remove();
 
-
+       $('#id_dataTable').DataTable().remove().draw(false);
+       alert("DataTable Redraw/RenderTable is not refreshing display!");
 };
 
 Library.prototype._footAddBookHandler = function(e){
@@ -131,14 +141,34 @@ Library.prototype._footAddBookHandler = function(e){
        e._addBook(book);
 };
 
-// Library.prototype._footAddBooksHandler = function(e){
-//    //  $(e.currentTarget).parent("tr").remove();
-//    //  $(e.currentTarget).remove();
-//    //  $("#id_dataTable").remove();
-//        alert("warning");
-//        e._addBooks($("#id_footAuthor").val());
-// };
+Library.prototype._footAddBooksHandler = function(e){
+   //  $(e.currentTarget).parent("tr").remove();
+   //  $(e.currentTarget).remove();
+   //  $("#id_dataTable").remove();
+   var book = new Book([
+     {  title: $("#id_footTitle").val(),
+        author: $("#id_footAuthor").val(),
+        numPages: $("#id_footNumPages").val(),
+        pubDate: $("#id_footPubDate").val(),
+        cover: "",
+        action:""
+     }]);
+   e._addBook(book);
+};
 
+
+Library.prototype._topSearchTextsHandHandler = function(e){
+
+        var searchVal = $("#id_topSearchText").val();
+        if (searchVal !== null) {
+            Library.prototype._search(searchVal);
+        }
+        // Library.prototype._showLibrary();
+        this.myBookArray = myTaskArray;
+        $('#id_dataTable').DataTable().remove().draw(false);
+        alert("DataTable Redraw/RenderTable is not refreshing display!");
+
+};
 
 // Library.prototype._renderTable = function(){
 //   for(var i=0; i < this.myBookArray.length; i++){
@@ -244,20 +274,7 @@ Library.prototype._sortLibrary = function(){
     }
 };
 
-/////////////////////////////////////////////////////////////////////////
-  $("#id_topSearchButton").on("click", function()
-          { // var passingval= $("textarea").val(); alert(passingval);
-                //addABook
-                var searchVal = $("#id_topSearchText").val();
-                if (searchVal !== null) {
-                    Library.prototype._search(searchVal);
-               }
-                    Library.prototype._showLibrary();
-          }
 
-  );
-
-/////////////////////////////////////////////////////////////////////////
 Library.prototype._addBook =  function (book) {
   if (book == null) {
     console.log("No Book Argument");
@@ -452,16 +469,16 @@ Library.prototype._getRandomBook = function () {
      // search the Title or Author fields to match filterString
     // no usin filter() pre-defined functions
 
-    var searchArray = ([]);
+    var myTaskArray = ([]);
     for (i = 0; i < this.myBookArray.length; i++){
         if ((this.myBookArray[i].title.toUpperCase().indexOf(filterString.toUpperCase()) !== -1) ||
             (this.myBookArray[i].author.toUpperCase().indexOf(filterString.toUpperCase()) !== -1))
             {
               //this.getBookByTitle(filterString); // all partilly matches
-              searchArray.push(this.myBookArray[i]);
+              myTaskArray.push(this.myBookArray[i]);
             }
     }
-      console.log(searchArray);
+      console.log(myTaskArray);
   };
 
 
@@ -487,13 +504,13 @@ Library.prototype._getRandomBook = function () {
 // book instances
 // var gIt0 = new Book({title: "IT", author: "S King", numPages: 800, pubDate: "Decembher 17, 1995 03:24:00"}); // problem
 // var gIt0 = new Book("IT","S King",800,"Decembher 17, 1995 03:24:00","","");
-var gIt1 = new Book("IT","Stephen King",800, "Decembher 17, 1995 03:24:00","","");
-var gCatcher2 = new Book("Catcher In the Rye","JD Salinger",600, "December 2, 2005 04:24:00","");
-var gBootStrap3 = new Book("BootStrap","KristineV",400, "May 5, 2018 16:50:00","");
-var gJavaScript4 = new Book("JavaScript201","Kyle Brothis",200, "April 5, 2018 16:50:00","");
-var gHtmlCss5 = new Book("HTMLCSS","DavidX",100, "January 1, 2018 6:50:00","");
-var gHtmlCss6 = new Book("Java201","KristineV",100, "January 1, 2018 6:50:00","");
-var gBootStrap7 = new Book("Boot","Kyle Brothis",400, "May 5, 2018 16:50:00","");
+var gIt1 = new Book("IT","Stephen King",800, "Decembher 17, 1995 03:24:00","","remove");
+var gCatcher2 = new Book("Catcher In the Rye","JD Salinger",600, "December 2, 2005 04:24:00","", "remove");
+var gBootStrap3 = new Book("BootStrap","KristineV",400, "May 5, 2018 16:50:00","", "remove");
+var gJavaScript4 = new Book("JavaScript201","Kyle Brothis",200, "April 5, 2018 16:50:00","", "remove");
+var gHtmlCss5 = new Book("HTMLCSS","DavidX",100, "January 1, 2018 6:50:00","", "remove");
+var gHtmlCss6 = new Book("Java201","KristineV",100, "January 1, 2018 6:50:00","", "remove");
+var gBootStrap7 = new Book("Boot","Kyle Brothis",400, "May 5, 2018 16:50:00","", "remove");
 
 // var allBooks = ([gHtmlCss5, gHtmlCss6, gBootStrap7]);
 // books[gIT1, gCatcher2, gBootStrap3, gJavascript4, gHtmlCss5];
@@ -506,7 +523,7 @@ var allBooks = ([
     numPages: 800,
     pubDate: "Decembher 17, 1995 03:24:00",
     cover: "",
-    action:""
+    action:"remove"
   },
 
   {title: "Catcher In the Rye",
@@ -514,7 +531,7 @@ var allBooks = ([
   numPages: 600,
   pubDate: "December 2, 2005 04:24:00",
   cover: "",
-  action:""
+  action:"remove"
   },
 
   {title: "BootStrap",
@@ -522,7 +539,7 @@ var allBooks = ([
     numPages: 400,
     pubDate: "May 5, 2018 16:50:00",
     cover: "",
-    action:""
+    action:"remove"
   },
 
   {title: "JavaScript201",
@@ -530,7 +547,7 @@ var allBooks = ([
   numPages:200,
   pubDate: "April 5, 2018 16:50:00",
   cover: "",
-  action:""
+  action:"remove"
   },
 
   {title: "HTMLCSS",
@@ -538,7 +555,7 @@ var allBooks = ([
     numPages:100,
     pubDate: "January 1, 2018 6:50:00",
     cover: "",
-    action:""
+    action:"remove"
   },
 
   {title: "Java201",
@@ -546,7 +563,7 @@ var allBooks = ([
     numPages:100,
     pubDate: "January 1, 2018 6:50:00",
     cover: "",
-    action:""
+    action:"remove"
   },
 
   {title:"Boot",
@@ -554,6 +571,6 @@ var allBooks = ([
   numPages:400,
   pubDate: "May 5, 2018 16:50:00",
   cover: "",
-  action:""
+  action:"remove"
   }
 ]);
