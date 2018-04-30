@@ -7,7 +7,7 @@ var Book = function(title, author, numPages, pubDate, cover, action){
   this.title =  title;
   this.author = author;
   this.numPages = numPages;
-  this.publishDate = new Date(pubDate);
+  this.pubDate = new Date(pubDate);
   this.cover = cover;   // additional to original BOOK constructor
   this.action = action; // additional to original BOOK constructor
 };
@@ -94,9 +94,9 @@ Library.prototype.init = function () {
 
 Library.prototype._bindEvents = function(){
   // $("#id_dataTable").on("click", ".id_footRemove", $.proxy(this._removeHandler, this)); //delegation
-  $("#id_topSubmitButton").on("click", $.proxy(this._footRemoveHandler, this));
-  $("#id_topSubmitButton").on("click", $.proxy(this._footAddBookHandHandler, this));
-  $("#id_topSubmitButton").on("click", $.proxy(this._footAddBooksHandHandler, this));
+  // $("#id_topSubmitButton").on("click", $.proxy(this._footRemoveHandler, this));
+  $("#id_topSubmitButton").on("click", $.proxy(this._footAddBookHandler, this));
+  // $("#id_topSubmitButton").on("click", $.proxy(this._footAddBooksHandHandler, this));
   // $("#id_topSubmitButton").on("click", $.proxy(this._topSearchTextsHandHandler, this));
 
   // $("#id_footRemove").on("click", $.proxy(this._footRemoveHandler, this));
@@ -136,20 +136,22 @@ Library.prototype._footRemoveHandler = function(e){
        alert("DataTable Redraw/RenderTable is not refreshing display!");
 };
 
-Library.prototype._footAddBookHandler = function(e){
+Library.prototype._footAddBookHandler = function(){
    //  $(e.currentTarget).parent("tr").remove();
    //  $(e.currentTarget).remove();
    //  $("#id_dataTable").remove();
-       alert("warning");
-       var book = new Book([
-         {  title: $("#id_footTitle").val(),
-            author: $("#id_footAuthor").val(),
-            numPages: $("#id_footNumPages").val(),
-            pubDate: $("#id_footPubDate").val(),
-            cover: "",
-            action:""
-         }]);
-       e._addBook(book);
+   this._addBook(new Book(
+                      $("#id_footTitle").val(),
+                      $("#id_footAuthor").val(),
+                      $("#id_footNumPages").val(),
+                      $("#id_footPubDate").val(),
+                      "",
+                      ""
+                 )
+              );
+   $('#id_dataTable').DataTable().column(0).data();
+                                            // .column(0)
+                                            // .data()
 };
 
 Library.prototype._footAddBooksHandler = function(e){
@@ -166,7 +168,6 @@ Library.prototype._footAddBooksHandler = function(e){
      }]);
    e._addBook(book);
 };
-
 
 Library.prototype._topSearchTextsHandHandler = function(e){
 
@@ -314,7 +315,7 @@ Library.prototype._removeBookByTitle =  function (title) {
     }
   }
        console.log(this.myBookArray);
-       this._saveLocalStorage();
+       // this._getLocalStorage();
        return status;
 };
 
@@ -470,11 +471,23 @@ Library.prototype._getRandomBook = function () {
       // this.myBookArray = JSON.parse(localStorage.getItem("DX"));
       // if (this.myBookArray === null) {this._addBook(); // need change}
       // return this.myBookArray;
-        try { debugger;
+        try {
           var myJSON = JSON.parse(localStorage.getItem("DX"));
-              myJSON.forEach(function(book) {
-              this._addBook(new Book(book));
-           });
+          console.log( myJSON );
+              // myJSON.forEach(function(book) {
+              // myJSON.forEach(book) {
+              //this._addBook(book);
+              // alert("123");
+              for (var i=0; i<myJSON.length; i++) {
+                 this._addBook(new Book(
+                   myJSON[i].title,
+                   myJSON[i].author,
+                   myJSON[i].numPages,
+                   myJSON[i].pubDate,
+                   myJSON[i].cover,
+                   myJSON[i].action
+                 ));
+               };
             return true;  // able to get library from local storage
             }  catch (exception) {
                return false;
