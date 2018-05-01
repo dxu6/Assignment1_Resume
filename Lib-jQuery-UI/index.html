@@ -46,11 +46,14 @@
           <h3>Functions for this Application: </h3>
           <!-- Application design layout as dropdown -->
           <div class="header row">
-                <div class="col-md-1 mt-1"><img src="img/books.jpg" width="50" height="50">
+                <div class="col-md-2 mt-1"><img src="img/books.jpg" width="50" height="50">
                 </div>
 
-                <div class="col-md-11 mt-1">
-                      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="col-md-10 mt-1">
+                    <button id="id_topShowAllBtn col-md-3" type="button" name="button">Show All Library Books</button>
+                    <button id="id_topRandomBookBtn col-md-3" type="button" name="button">Get Random Book</button>
+                    <button id="id_topDistAuthorBtn col-md-3" type="button" name="button">Get Distinct All Authors</button>
+                      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
                           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                           <span class="navbar-toggler-icon"></span>
                           </button>
@@ -100,8 +103,7 @@
                                     <button class="btn btn-outline-success col-md-1 ml-1"  id="id_topSubmitButton" type="submit">Submit</button>
                               </ul>
                           </div>
-                      </nav>
-                    </div>
+                      </nav> -->
                 </div>
           </div>
 
@@ -117,7 +119,6 @@
                               <th col-md-2 id="id_dataTableNumPages">NumPages</th>
                               <th col-md-2 id="id_dataTablePubDate">PubDate</th>
                               <th col-md-2 id="id_dataTableCover">Cover</th>
-                              <!-- <th col-md-2 id="id_dataTableRemove">Remove</th> -->
                               <th col-md-2 id="id_dataTableAction">Action</th>
                             </tr>
                        </thead>
@@ -137,17 +138,18 @@
                                 <input type="date" class="form-control input-sm filter-column" id="id_footPubDate">
                               </th>
                               <th>
-
                                  <img class="footCover" src="img/learning.jpg" width="80" height="40" id="id_footCover">
                               </th>
                               <th>
-                                <select class="form-control input-sm filter-column">
+                                <!-- <select class="form-control input-sm filter-column">
                                   <option value="Remove" id="id_footRemove">Remove</option>
                                   <option value="AddBook" id="id_footAddBook">AddBook</option>
                                   <option value="AddBooks" id="id_footAddBooks">AddBooks</option>
                                   <option value="Rename" id="id_footRename">Rename</option>
+                                </select> -->
+                                <button id="id_footRemove" type="button" name="button">Remove</button>
+                                <button id="id_footAddBook" type="button" name="button">AddBook</button>
 
-                                </select>
                               </th>
                             </tr>
                       </tfoot>
