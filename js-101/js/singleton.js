@@ -244,6 +244,7 @@ var Book = function(title, author, numPages, pubDate){
   this.numPages = numPages;
   this.publishDate = new Date(pubDate);
 };
+
  //document ready
  $(function){
 
