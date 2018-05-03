@@ -16,7 +16,7 @@
 
       <!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> -->
       <!-- <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script> -->
-      <!-- <script src="//cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script> --> -->
+      <!-- <script src="//cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script> -->
 
       <!-- <script src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script> -->
 
@@ -39,7 +39,7 @@
       <div class="container-fluid">
          <h1>
              <center> On-Line Library Application with UI
-                <img src="img/boulder.jpg">
+                <img src="img/boulder.jpg" width="1600" height="300">
              </center>
          </h1>
 
@@ -51,60 +51,99 @@
 
                 <div class="col-md-10 mt-1">
                     <button id="id_topShowAllBtn col-md-3" type="button" name="button">Show All Library Books</button>
-                    <button id="id_topRandomBookBtn col-md-3" type="button" name="button">Get Random Book</button>
-                    <button id="id_topDistAuthorBtn col-md-3" type="button" name="button">Get Distinct All Authors</button>
-                      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                          <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                              <ul class="navbar-nav col-md-12">
-                                    <li class="nav-item dropdown col-md-2">
-                                      <a class="nav-link dropdown-toggle" href="#" id="navbarAdd" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                         ADDBOOK
-                                      </a>
-                                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">addABook</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">addBooks</a>
-                                      </div>
-                                    </li>
-
-                                    <li class="nav-item dropdown col-md-2">
-                                      <a class="nav-link dropdown-toggle" href="#" id="navbarAdd" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                         REMOVEBOOK
-                                      </a>
-                                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">removeBookByTitle</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">removeBookByAuthor</a>
-                                      </div>
-                                    </li>
-
-                                    <li class="nav-item dropdown col-md-3 ml-1">
-                                      <a class="nav-link dropdown-toggle" href="#" id="navbarGet" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                         GETBOOK
-                                      </a>
-                                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">getBookByTitle</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">getBooksByAuthor</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">getAuthors</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">getRandomAuthorName</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">getRandomBookByTitle</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">getRandomBookByAuthor</a>
-                                      </div>
-                                    </li>
-                                    <input class="form-control col-md-3" id="id_topSearchText" type="search" placeholder="Search Titles or Authors">
-                                    <button class="btn btn-outline-success col-md-1 ml-1"  id="id_topSubmitButton" type="submit">Submit</button>
-                              </ul>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#id_topRandomBookBtnModal">Add/Remove/Change Book (Random)</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#id_topDistAuthorBtnModal">Get All Distinct Authors</button>
+                                 <!-- // 1st modal id_topRandomBookBtnModal -->
+                        <div class="modal fade" id="id_topRandomBookBtnModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn btn-primary" id="id_topRandomBookBtnModalInside">Get Random Book</button>
+                                    <button type="button" class="btn btn-secondary" id="id_topAddBookBtnModalInside">Add New Book(s)</button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                        <form>
+                                              <div>
+                                                <label>Title:</label>
+                                                <input type="text" id="title_modal">
+                                              </div>
+                                              <div>
+                                                <label>Author:</label>
+                                                <input type="text" id="author_modal">
+                                              </div>
+                                              <div>
+                                                <label>Pages:</label>
+                                                <input type="text" id="numPages_modal">
+                                              </div>
+                                              <div>
+                                                <label>Publish Date:</label>
+                                                <input type="text" id="pubDate_modal">
+                                              </div>
+                                              <div>
+                                                <label>Cover:</label>
+                                                <input type="text" id="cover_modal">
+                                              </div>
+                                        </form>
+                                  </div>
+                              <div class="modal-footer">
+                                    <button type="button" class="btn btn-thirdly" id="deleteModal">Delete Book</button>
+                                    <button type="button" class="btn btn-forthly" id="saveModal">Save Changes</button>
+                              </div>
+                            </div>
                           </div>
-                      </nav> -->
-                </div>
+                        </div>
+
+                    <!-- // 2nd modal id_topDistAuthorBtnModal -->
+                   <div class="modal fade" id="id_topDistAuthorBtnModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                       <div class="modal-dialog" role="document">
+                               <div class="modal-content">
+                                     <div class="modal-header">
+                                           <h5>List All Distinct Authors</h5>
+                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                             <span aria-hidden="true">&times;</span>
+                                           </button>
+                                     </div>
+                                     <div class="modal-body">
+                                           <div class="card border-success" style="max-width: 15rem;">    <!-- card mixins utilities -->
+                                                 <div class="card-header bg-transparent border-success">
+                                                      <table class="datatable table table-hover table-bordered" id="id_dataTableModal2">
+                                                         <thead>
+                                                               <tr>
+                                                                 <th col-md-2 id="id_dataTableModal2Author">Author</th>
+                                                               </tr>
+                                                          </thead>
+
+                                                         <tbody>
+
+                                                         </tbody>
+                                                       </table>
+                                                 </div>
+                                           </div>
+                                     </div>
+                                     <!-- <div class="modal-header">
+                                       <button type="button" class="btn btn-primary" id="id_topDistAuthorBtnModalInside">List All Distinct Authors</button>
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                         <span aria-hidden="true">&times;</span>
+                                       </button>
+                                     </div>
+                                     <div class="modal-body">
+                                           <form>
+                                                 <div>
+                                                   <label>Author:</label>
+                                                   <input type="text" id="author_modal2">
+                                                 </div>
+                                           </form>
+                                     </div>
+                                     <div class="modal-footer">
+                                     </div> -->
+                               </div>
+                       </div>
+                   </div>
+
+              </div>
           </div>
 
           <!-- display data area as CARD and table -->
@@ -141,12 +180,6 @@
                                  <img class="footCover" src="img/learning.jpg" width="80" height="40" id="id_footCover">
                               </th>
                               <th>
-                                <!-- <select class="form-control input-sm filter-column">
-                                  <option value="Remove" id="id_footRemove">Remove</option>
-                                  <option value="AddBook" id="id_footAddBook">AddBook</option>
-                                  <option value="AddBooks" id="id_footAddBooks">AddBooks</option>
-                                  <option value="Rename" id="id_footRename">Rename</option>
-                                </select> -->
                                 <button id="id_footRemove" type="button" name="button">Remove</button>
                                 <button id="id_footAddBook" type="button" name="button">AddBook</button>
 
@@ -155,38 +188,8 @@
                       </tfoot>
 
                       <tbody>
-                        <tr>
-                          <!-- <td>IT</td>
-                          <td>Stephen King</td>
-                          <td>800</td>
-                          <td>Decembher 17, 1995</td>
-                          <td></td>
-                          <td><button class="id_remove" type="button" name="button">remove</button></td>
-                        </tr>
-                        <tr>
-                          <td>Catcher In the Rye</td>
-                          <td>JD Salinger</td>
-                          <td>600</td>
-                          <td>December 2, 2005</td>
-                          <td></td>
-                          <td><button class="id_remove" type="button" name="button">remove</button></td>
-                        </tr>
-                        <tr>
-                          <td>BootStrap</td>
-                          <td>KristineV</td>
-                          <td>400</td>
-                          <td>May 5, 2018</td>
-                          <td></td>
-                          <td><button class="id_remove" type="button" name="button">remove</button></td>
-                        </tr>
-                        <tr>
-                        <td>JavaScript201</td>
-                        <td>Kyle Brothis</td>
-                        <td>200</td>
-                        <td>May 5, 2018</td>
-                        <td></td> -->
-                        <td><button class="id_remove" type="button" name="button">remove</button></td>
-                        </tr>
+                        <!-- <tr>
+                        </tr> -->
                       </tbody>
                     </table>
                   </div>

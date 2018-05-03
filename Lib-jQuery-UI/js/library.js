@@ -29,12 +29,20 @@ $(document).ready(function(){
                   {data: 'action'}
                ]
     });
+
+    $('#id_dataTableModal2').DataTable({
+      data: gLib.myDistinctArray,    // mapping DataTableModal2 to myDistinctArray
+      columns: [
+                  {data: 'author'}
+               ]
+    });
 });
 
 // Bind listeners
 Library.prototype.init = function () {
   // get localStorage as database to pre-load UI Application
   this._getLocalStorage();
+  this.myDistinctArray = [];
   this._bindEvents();
 
   // #id_dataTable
@@ -47,6 +55,7 @@ Library.prototype.init = function () {
 
   // #id_topRandomBookBtn
   // #id_topDistAuthorBtn
+  // #id_topShowAllBtn
 
   // #id_footTitle
   // #id_footAuthor
@@ -85,22 +94,70 @@ Library.prototype.init = function () {
 // };
 
 Library.prototype._bindEvents = function(){
+  $("#id_topShowAllBtn").on("click", $.proxy(this._topShowAllBtnHandler, this));  //delegation
+  $("#id_topRandomBookBtnModalInside").on("click", $.proxy(this._topRandomBookBtnModalInsideHandler, this));
+  $("#id_topAddBookBtnModalInside").on("click", $.proxy(this._topAddBookBtnModalInsideHandler, this));
+
+  $("#id_dataTableModal2").on("click", $.proxy(this._dataTableModal2Handler, this));
+  $("#deleteModal").on("click", $.proxy(this._deleteModalHandler, this));
+  $("#saveModal").on("click", $.proxy(this._saveChangeBtnModalInsideHandler, this));
   $("#id_footRemove").on("click", $.proxy(this._footRemoveHandler, this));  //delegation
   $("#id_footAddBook").on("click", $.proxy(this._footAddBookHandler, this));
-  $("#id_topRandomBookBtn").on("click", $.proxy(this._topRandomBookBtnHandler, this));
-  $("#id_topDistAuthorBtn").on("click", $.proxy(this._topDistAuthorBtnHandler, this));
 };
 
-Library.prototype._topRandomBookBtnHandler = function(e){
-   this._getRandomBook();
-     // this._tableDisplay();
-};
-
-
-Library.prototype._topDistAuthorBtnHandler = function(e){
+Library.prototype._dataTableModal2Handler = function(){
   this._getAuthors();
+  this._tableDisplayModal2();
+};
 
-   this._tableDisplay();
+Library.prototype._topAddBookBtnModalInsideHandler = function(){
+  this._addBook(new Book(
+                     $("#title_modal").val(),
+                     $("#author_modal").val(),
+                     $("#numPages_modal").val(),
+                     $("#pubDate_modal").val(),
+                     $("#cover_modal").val(),
+                     "X"
+                )
+             );
+                    this._tableDisplay();
+                    $("#title_modal").val("");
+                    $("#author_modal").val("");
+                    $("#numPages_modal").val("");
+                    $("#pubDate_modal").val("");
+                    $("#cover_modal").val("");
+};
+
+Library.prototype._saveChangeBtnModalInsideHandler = function(){
+  this._addBook(new Book(
+                     $("#title_modal").val(),
+                     $("#author_modal").val(),
+                     $("#numPages_modal").val(),
+                     $("#pubDate_modal").val(),
+                     $("#cover_modal").val(),
+                     "X"
+                )
+             );
+                    this._tableDisplay();
+                    $("#title_modal").val("");
+                    $("#author_modal").val("");
+                    $("#numPages_modal").val("");
+                    $("#pubDate_modal").val("");
+                    $("#cover_modal").val("");
+};
+
+Library.prototype._topShowAllBtnHandler = function(e){
+        this._tableDisplay();
+};
+
+Library.prototype._topRandomBookBtnModalInsideHandler = function(e){
+   this._getRandomBook();
+};
+
+
+Library.prototype._dataTableModal2Handler = function(e){
+   this._getAuthors();
+   // this._tableDisplay();
 };
 
 Library.prototype._footRemoveHandler = function(e){
@@ -115,6 +172,25 @@ Library.prototype._footRemoveHandler = function(e){
          }
 
        this._tableDisplay();
+};
+
+Library.prototype._deleteModalHandler = function(e){
+   //  $(e.currentTarget).parent("").parent("tr").remove();
+       var modalTitle = $("#title_modal").val();
+       var modalAuthor = $("#author_modal").val();
+         if ((modalTitle !== null) && (modalTitle !== "")) {
+           this._removeBookByTitle(modalTitle);
+         }
+         else if ((modalAuthor !== null) && (modalAuthor !== "")){
+          this._removeBookByAuthor(modalAuthor);
+         }
+
+       this._tableDisplay();
+       $("#title_modal").val("");
+       $("#author_modal").val("");
+       $("#numPages_modal").val("");
+       $("#pubDate_modal").val("");
+       $("#cover_modal").val("");
 };
 
 Library.prototype._footAddBookHandler = function(){
@@ -145,6 +221,17 @@ Library.prototype._tableDisplay =  function(){
          });
 };
 
+Library.prototype._tableDisplayModal2 =  function(){
+          $('#id_dataTableModal2').dataTable().fnDestroy();
+          $('#id_dataTableModal2').DataTable({
+          data: this.myDistinctArray,    // mapping DataTableModal2 to myDistinctArray
+          columns: [
+                      {data: 'author'}
+                   ]
+         });
+};
+
+// Bookssss
 // Library.prototype._footAddBooksHandler = function(e){
 //    //  $(e.currentTarget).parent("tr").remove();
 //    //  $(e.currentTarget).remove();
@@ -220,23 +307,14 @@ Library.prototype._getRandomBook = function () {
              console.log(this.myBookArray);
         }
             else
-                 {
+                {
                    var i =  Math.floor(Math.random() * (this.myBookArray.length - 1));
-                   // console.log("the random number is: " + i);
-                   // console.log(this.myBookArray[i]);
-                   $('#id_dataTable').dataTable().fnDestroy();
-                   $('#id_dataTable').DataTable({
-                   data: this.myBookArray[i],    // mapping DataTable to myBookArray
-                   columns: [
-                               {data: 'title'},
-                               {data: 'author'},
-                               {data: 'numPages'},
-                               {data: 'pubDate'},
-                               {data: 'cover'},
-                               {data: 'action'}
-                            ]
-                  });
-                   }
+                  $("#title_modal").val(this.myBookArray[i].title);
+                  $("#author_modal").val(this.myBookArray[i].author);
+                  $("#numPages_modal").val(this.myBookArray[i].numPages);
+                  $("#pubDate_modal").val(this.myBookArray[i].pubDate);
+                  $("#cover_modal").val(this.myBookArray[i].cover);
+               }
 };
 
   Library.prototype._getBookByTitle =  function (subTitle) {
@@ -302,26 +380,31 @@ Library.prototype._getRandomBook = function () {
     // });
     //   alert(distinctArray.join(","));
 
-        var distinctArray = [];
+        // var myDistinctArray = [];
         if (this.myBookArray.length == 0) {
           return "null -- No books exist!";
         }
 
-        for (i = 0; i < this.myBookArray.length; i++)
-          {distinctArray.push(this.myBookArray[i].author);
+        for (i = 0; i < this.myBookArray.length; i++){
+          alert("distinct");
+          myDistinctArray.push(this.myBookArray[i].author);
           }
-        console.log(distinctArray);
-        for (i = 0; i < distinctArray.length; i++)
-          {
-                   for (j = i+1; j < distinctArray.length; j++)
-                   { console.log(distinctArray[i]);
-                     if (distinctArray[i].toUpperCase() === distinctArray[j].toUpperCase())
-                     { console.log(distinctArray[j]);
-                       distinctArray.splice(j,1);
-                     }
-                 }
+        // console.log(distinctArray);
+        for (i = 0; i < myDistinctArray.length; i++){
+                   for (j = i+1; j < myDistinctArray.length; j++)
+                       { console.log(myDistinctArray[i]);
+                         if (myDistinctArray[i].toUpperCase() === myDistinctArray[j].toUpperCase())
+                             { console.log(myDistinctArray[j]);
+                               myDistinctArray.splice(j,1);
+                             }
+                       }
           }
-              console.log(distinctArray);
+              // console.log(myDistinctArray);
+
+        // for (i = 0; i < myDistinctArray.length; i++){
+        //     $("#id_dataTableModal2Author").val(myDistinctArray[i]);
+        // }
+        // this._tableModal2Display();
 };
 
   Library.prototype._getRandomAuthorName =  function () {
