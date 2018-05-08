@@ -1,7 +1,7 @@
 
 var instance;
 
-class MeetUpAPI {
+class MeetUpAjaxAPI {
         constructor(){
           // this.singletonName = singletonName;
           if(instance){return instance;}
@@ -32,8 +32,9 @@ class MeetUpAPI {
           $("#id_topSearch").on("click",$.proxy(this._topSearchHandler, this)); //delegation
         }
 
-        _tableDisplay() {
-                    $("#id_dataTable")
+        _tableDisplay(e) {
+              try{
+                     $("#id_dataTable")
                       .dataTable()
                       .fnDestroy();
                     $("#id_dataTable").DataTable({
@@ -47,67 +48,53 @@ class MeetUpAPI {
                         { data: "member_count"}
                       ]
                     });
+                } catch(e) {
+                            alert("error");
+                           }
         }
 
       _topSearchHandler() {
+                     var self = this;
                     // const oArgs={zip:"80302",country: "US" ,city: "Boulder",state: "CO", ranking: , count:  };
                     $.ajax({
                         dataType: 'jsonp',
                         type:"GET",
                         url:"https://api.meetup.com/2/cities",
+                         //url:"js/dir.js",
+
                         // data: oArgs
                         data: {
-                          // zip: zip,
-                          country: this.country.val(),
-                          // city: city,
-                          // ranking: ranking,
-                          state: this.state.val(),
-                          // count: count,
-                          result: this.result.val()
+                           country: $("#country").val(),
+                          //country: self.country.val(),
+                           state: $("#state").val(),
+                          //state: self.state.val(),
+
+                          //page: self.result.val()
+                          page: $("#result").val(),
+                          key: "7c4229a48321567839343716565844"
                         }
                       }).done(function(response){
                           // when success, inject to RespArray, display dataTable
-                          debugger
                           // this._getRespArray();
                           // for (var i = 0; i < array.length; i++) {
                           //   array[i]
                           // }
                           // response.results;
-                          this.myRespArray = response.results;
-                          this._tableDisplay();
+                          self.myRespArray = response.results;
+                          // debugger
+                          self._tableDisplay();
                       }).fail(function(){
                           // when failure
                         alert("fail!");
                       })
                 }
+}
 
-          // _getRespArray() {
-          //         try {
-          //           var myJSON = JSON.parse(localStorage.getItem("DX"));
-          //           // console.log(myJSON);
-          //           // myJSON.forEach(function(book) {
-          //           // myJSON.forEach(book) {
-          //
-          //           for (var i = 0; i < myJSON.length; i++) {
-          //             this._addBook(
-          //               new MeetUpAjaxAPI(
-          //                 myJSON[i].zip,
-          //                 myJSON[i].country,
-          //                 myJSON[i].city,
-          //                 myJSON[i].ranking,
-          //                 myJSON[i].state,
-          //                 myJSON[i].count
-          //               )
-          //             );
-          //           }
-          //           return true; // able to get library from local storage
-          //         } catch (exception) {
-          //           return false;
-          //         }
-          // }
-
-  $(document).on(ready, function(){
-// $(function(){
+  $(document).ready(function(){
+ //$(function(){
        let gMeetUpAjaxAPI = new MeetUpAjaxAPI();
        gMeetUpAjaxAPI.init();
+      // this.myRespArray = gMeetUpAjaxAPI.myRespArray;
+      // debugger
+      // this._tableDisplay();
 });
