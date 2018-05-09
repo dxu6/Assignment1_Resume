@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>UI for HTTP Request of Web API</title>
+      <link rel="stylesheet" href="css/bootstrap.css">
+      <link rel="stylesheet" href="css/style.css">
+      <script src="js/jquery.js" charset="utf-8"></script>
+      <script src="js/ajax-meetup-api.js" charset="utf-8"></script>
+  </head>
+
+  <body>
+      <div class="container-fluid">
+             <h1>
+                 <center> UI for HTTP Request of Ajax Web API
+                    <img src="img/meetup_api.png" width="1300" height="400">
+                 </center>
+             </h1>
+
+             <div>
+                   <span>country: </span>
+                   <input type="textTitle" id="country"></input>
+                   <span>state: </span>
+                   <input type="textTitle" id="state">
+                   <span>result: </span>
+                   <input type="textTitle" id="result"></input>
+                   <button id="id_topSearch" type="button" name="button">Submit</button>
+             </div>
+
+             <!-- display data area as CARD and table -->
+             <div class="card border-success mt-5" style="max-width: 80rem;">    <!-- card mixins utilities -->
+
+                <div class="card-header bg-transparent border-success">
+                   <table class="datatable table table-hover table-bordered" id="id_dataTable">
+                      <thead>
+                            <tr>
+                              <th col-md-2 id="id_dataTableZip">zip</th>
+                              <th col-md-2 id="id_dataTableCountry">country</th>
+                              <th col-md-2 id="id_dataTableCity">city</th>
+                              <th col-md-2 id="id_dataTableRanking">ranking</th>
+                              <th col-md-2 id="id_dataTableState">state</th>
+                              <th col-md-2 id="id_dataTableLat">lat</th>
+                              <th col-md-2 id="id_dataTableLon">lon</th>
+                              <th col-md-2 id="id_dataTableCount">member_count</th>
+                            </tr>
+                       </thead>
+
+                      <tbody>
+                      </tbody>
+
+                    </table>
+                  </div>
+          </div>
+      </div>
+
+
+   <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+  </body>
+</html>
