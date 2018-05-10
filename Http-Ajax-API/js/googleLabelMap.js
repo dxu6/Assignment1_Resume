@@ -15,10 +15,10 @@ function initialize() {
   //
   // var elementLngVal = document.querySelector("#id_dataTableLon").textContent;
   // var elementLng = Number(elementLngVal); //parseInt(elementLngVal)
-  // // for (var i = 0; i < this.myRespArray.length; i++) {
-  // //   var BoulderCO = {lat: this.myRespArray[i].lat, lng: this.myRespArray[i].lon};
-  // //var BoulderCO = {lat: $("#id_dataTableLat"), lng: $("#id_dataTableLon")};
-  // var BoulderCO = {lat: elementLat, lng: elementLng};
+  // for (var i = 0; i < this.myRespArray.length; i++) {
+  //   var BoulderCO = {lat: this.myRespArray[i].lat, lng: this.myRespArray[i].lon};
+  //var BoulderCO = {lat: $("#id_dataTableLat"), lng: $("#id_dataTableLon")};
+   // var BoulderCO = {lat: elementLat, lng: elementLng};
   ///////////////////////////////////////////////////////////////
 
   var map = new google.maps.Map(document.getElementById('map'), {
