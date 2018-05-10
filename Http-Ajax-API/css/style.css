@@ -1,6 +1,9 @@
 body, html {
 		/* background-image: url("../img/boulder.jpg"); */
-		height: 50%;
+		height: 100%;
+		width: 100%;
+		margin: 0;
+		padding: 0;
 		/* background-position: center; */
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -9,3 +12,9 @@ body, html {
 .container-fluid {
 	  background-color: blue;
 }
+
+	/* set the map height to define the size of the div map element */
+	#map {
+		height: 100%;
+		width: 100%;
+	}
