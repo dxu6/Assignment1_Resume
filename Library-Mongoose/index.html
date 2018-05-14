@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>On-Line Library Application with UI</title>
+      <link rel="stylesheet" href="css/bootstrap.css">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/fontello.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="viewport" rel="stylesheet" href="css/style.css">
+      <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+      <!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> -->
+      <!-- <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script> -->
+      <!-- <script src="//cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script> -->
+
+      <!-- <script src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script> -->
+
+      <!-- <script src="//cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js"></script> -->
+      <!-- <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.bootstrap.min.js"></script> -->
+      <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script> -->
+      <!-- <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script> -->
+      <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/af-2.2.2/b-1.5.1/fh-3.1.3/r-2.2.1/sc-1.4.4/sl-1.2.5/datatables.min.css"/>-->
+      <!-- <script src="//code.jquery.com/jquery-1.12.4.js"></script> -->
+      <!-- <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
+      <!-- <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/af-2.2.2/b-1.5.1/fh-3.1.3/r-2.2.1/sc-1.4.4/sl-1.2.5/datatables.min.js"></script> -->
+      <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/sc-1.4.4/sl-1.2.5/datatables.min.css"/> -->
+      <!-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/sc-1.4.4/sl-1.2.5/datatables.min.js"></script>
+      <script src="js/jquery.js" charset="utf-8"></script>
+      <script src="js/library.js" charset="utf-8"></script> -->
+
+  </head>
+
+  <body>
+      <div class="container-fluid">
+         <h1>
+             <center> On-Line Library Application with UI
+                <img src="img/boulder.jpg" width="1600" height="300">
+             </center>
+         </h1>
+
+          <h3>Functions for this Application: </h3>
+          <!-- Application design layout as dropdown -->
+          <div class="header row">
+                <div class="col-md-2 mt-1"><img src="img/books.jpg" width="50" height="50">
+                </div>
+
+                <div class="col-md-10 mt-1">
+                    <button id="id_topShowAllBtn col-md-3" type="button" name="button">Show All Library Books</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#id_topRandomBookBtnModal">Add/Remove/Change Book (Random)</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" id="getAuthorsBtn" data-target="#id_topDistAuthorBtnModal">Get All Distinct Authors</button>
+                                 <!-- // 1st modal id_topRandomBookBtnModal -->
+                        <div class="modal fade" id="id_topRandomBookBtnModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn btn-primary" id="id_topRandomBookBtnModalInside">Get Random Book</button>
+                                    <button type="button" class="btn btn-secondary" id="id_topAddBookBtnModalInside">Add New Book(s)</button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                        <form>
+                                              <div>
+                                                <label>Title:</label>
+                                                <input type="text" id="title_modal">
+                                              </div>
+                                              <div>
+                                                <label>Author:</label>
+                                                <input type="text" id="author_modal">
+                                              </div>
+                                              <div>
+                                                <label>Pages:</label>
+                                                <input type="text" id="numPages_modal">
+                                              </div>
+                                              <div>
+                                                <label>Publish Date:</label>
+                                                <input type="text" id="pubDate_modal">
+                                              </div>
+                                              <div>
+                                                <label>Cover:</label>
+                                                <input type="text" id="cover_modal">
+                                              </div>
+                                        </form>
+                                  </div>
+                              <div class="modal-footer">
+                                    <button type="button" class="btn btn-thirdly" id="deleteModal">Delete Book</button>
+                                    <button type="button" class="btn btn-forthly" id="saveModal">Save Changes</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                    <!-- // 2nd modal id_topDistAuthorBtnModal -->
+                   <div class="modal fade" id="id_topDistAuthorBtnModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                       <div class="modal-dialog" role="document">
+                               <div class="modal-content">
+                                     <div class="modal-header">
+                                           <h5>List All Distinct Authors</h5>
+                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                             <span aria-hidden="true">&times;</span>
+                                           </button>
+                                     </div>
+                                     <div class="modal-body">
+                                           <div class="card border-success" style="max-width: 15rem;">    <!-- card mixins utilities -->
+                                                 <div class="card-header bg-transparent border-success">
+                                                      <table class="datatable table table-hover table-bordered" id="id_dataTableModal2">
+                                                         <thead>
+                                                               <tr>
+                                                                 <th col-md-2 id="id_dataTableModal2Author">Author</th>
+                                                               </tr>
+                                                          </thead>
+
+                                                         <tbody>
+
+                                                         </tbody>
+                                                       </table>
+                                                 </div>
+                                           </div>
+                                     </div>
+                                     <!-- <div class="modal-header">
+                                       <button type="button" class="btn btn-primary" id="id_topDistAuthorBtnModalInside">List All Distinct Authors</button>
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                         <span aria-hidden="true">&times;</span>
+                                       </button>
+                                     </div>
+                                     <div class="modal-body">
+                                           <form>
+                                                 <div>
+                                                   <label>Author:</label>
+                                                   <input type="text" id="author_modal2">
+                                                 </div>
+                                           </form>
+                                     </div>
+                                     <div class="modal-footer">
+                                     </div> -->
+                               </div>
+                       </div>
+                   </div>
+
+              </div>
+          </div>
+
+          <!-- display data area as CARD and table -->
+          <div class="card border-success mt-5 ml-5" style="max-width: 80rem;">    <!-- card mixins utilities -->
+
+                <div class="card-header bg-transparent border-success">
+                   <table class="datatable table table-hover table-bordered" id="id_dataTable">
+                      <thead>
+                            <tr>
+                              <th col-md-2 id="id_dataTableTitle">Title</th>
+                              <th col-md-2 id="id_dataTableAuthor">Author</th>
+                              <th col-md-2 id="id_dataTableNumPages">NumPages</th>
+                              <th col-md-2 id="id_dataTablePubDate">PubDate</th>
+                              <th col-md-2 id="id_dataTableCover">Cover</th>
+                              <th col-md-2 id="id_dataTableAction">Action</th>
+                            </tr>
+                       </thead>
+
+                       <tfoot>
+                            <tr>
+                              <th>
+                                <input type="textTitle" class="form-control input-sm filter-column" id="id_footTitle">
+                              </th>
+                              <th>
+                                <input type="textAuthor" class="form-control input-sm filter-column" id="id_footAuthor">
+                              </th>
+                              <th>
+                                <input type="numberPage" class="form-control input-sm filter-column" id="id_footNumPages">
+                              </th>
+                              <th>
+                                <input type="date" class="form-control input-sm filter-column" id="id_footPubDate">
+                              </th>
+                              <th>
+                                 <img class="footCover" src="img/learning.jpg" width="80" height="40" id="id_footCover">
+                              </th>
+                              <th>
+                                <button id="id_footRemove" type="button" name="button">Remove</button>
+                                <button id="id_footAddBook" type="button" name="button">AddBook</button>
+
+                              </th>
+                            </tr>
+                      </tfoot>
+
+                      <tbody>
+                        <!-- <tr>
+                        </tr> -->
+                      </tbody>
+                    </table>
+                  </div>
+
+                <div class="card-footer bg-transparent border-success"><h6>Results shown above after your operations</h6>
+                </div>
+          </div>
+
+      </div>
+
+      <script src="js/jquery.js" charset="utf-8"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/sc-1.4.4/sl-1.2.5/datatables.min.js"></script>
+      <!-- <script src="js/library.js" charset="utf-8"></script> -->
+      <script src="js/library-ES6-class.js" charset="utf-8"></script>
+
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+  </body>
+</html>
